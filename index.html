@@ -24,43 +24,35 @@
     <!--CSS-->
     <link rel="stylesheet" href="assets/css/style.css" />
 
-    <!--BOOTSTRAP-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-
     <title>Bienvenue sur le site du garage Vincent Parrot</title>
-  </head>
+  
+</head>
+
   <body>
     <!--HEADER-->
-    <header>
-        <div class="header">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-              <div class="col-md-3 mb-2 mb-md-1">
-                <a href="index.html"><img class="logo" src="assets/images/logo.png" alt="logo PARROT"></a>
-                </a>
-              </div>
+
+    <header id="hautpage">
+        <!-- logo -->
+        <div><a href="index.html"><img class="logo" src="assets/images/logo.png" alt="logo PARROT"></a></div>
+            
+        <!-- navigation -->
+        <ul class="main-nav">
+            <li><a class="active" href="index.html">ACCUEIL</a></li>
+            <li><a href="services.html">L'ATELIER</a></li>
+            <li><a href="ventes.html">LES VOITURES</a></li>
+            <li><a href="contact.html">NOUS CONTACTER</a></li>  
+        </ul>
         
-              <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="index.html" class="active nav-link px-2">ACCUEIL</a></li>
-                <li><a href="services.html" class="nav-link px-2">L'ATELIER</a></li>
-                <li><a href="ventes.html" class="nav-link px-2">LES VOITURES</a></li>
-                <li><a href="contact.html" class="nav-link px-2">NOUS CONTACTER</a></li>
-              </ul>
-        
-              <div class="col-md-3 text-end">
-                <a class="connexion" href="connexion.html"><button type="button" class="btn btn-light">Mon espace</button></a>
-              </div>
-            </div>
+        <div class="button-connexion">
+            <a class="connexion" href="connexion.html"><button class="btn-conn" type="button">Mon espace</button></a>
         </div>
     </header>
+
     
+    <!--MAIN-->
     <main>
         <div class="title1">
-            <img class="voiture" src="assets/icon/voiture.png" alt="voiture"><h1>Bienvenue sur le site du garage Vincent Parrot</h1>
+            <img class="voiture" src="assets/icon/voiture.png" alt="voiture"><h1>Bienvenue sur le site du garage Vincent  Parrot</h1>
         </div>
         <div class="intro">
         <p>
@@ -83,86 +75,107 @@
         <div class="title2">
             <img class="ecrous" src="assets/icon/ecrous.png" alt="ecrous"><h1>Livre d'or</h1>
         </div>
-
-        <div class="container">
-            <div class="row g-4 py-2 row-cols-1 row-cols-lg-3">
-                <div class="feature col">
-                    <div class="advice-title">
-                        <h3>Sergio</h3>
-                        <div>
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                        </div>
+        
+        <div class="livre-or">
+            <!--Avis1-->
+            <div class="feature">
+                <div class="advice-title">
+                    <h3>Sergio</h3>
+                    <div>
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
                     </div>
-                <p class="advice">Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                </div>
-                <br>
-                <div class="feature col">
-                    <div class="advice-title">
-                        <h3>Sergio</h3>
-                        <div>
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                        </div>
+                </div> 
+                <p class="advice">Super merci vous êtes les meilleurs je recommande ++++.
+                    Ma voiture a été chouchoutée, nettoyée, l’équipe est très disponible et à l’écoute, et le prix très raisonnable par rapport à la prestation effectuée.</p>
+            </div>
+            <!--Avis2-->
+            <div class="feature">
+                <div class="advice-title">
+                    <h3>Claudine</h3>
+                    <div>
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
                     </div>
-                <p class="advice">Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                </div>
-                <br>
-                <div class="feature col">
-                    <div class="advice-title">
-                        <h3>Sergio</h3>
-                        <div>
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                        </div>
+                </div> 
+                <p class="advice">Le patron a compris mon problème et a très bien suivi mon dossier.
+                    Equipe très sympathique.
+                    Ils tiennent bien au courant de l’avancement des réparations et le délai annoncé est toujours respecté.</p>
+            </div>
+            <!--Avis3-->
+            <div class="feature">
+                <div class="advice-title">
+                    <h3>Assad</h3>
+                    <div>
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
                     </div>
-                <p class="advice">Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                </div>
-                <br>
-                <div class="feature col">
-                    <div class="advice-title">
-                        <h3>Sergio</h3>
-                        <div>
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                            <img class="star" src="assets/icon/star.png" alt="star">
-                        </div>
+                </div> 
+                <p class="advice">Je cherchais une occasion depuis un bon moment et grâce aux réseaux sociaux j’ai découvert le catalogue de voitures d’occasion du garage Parrot ; j’ai pu opérer une pré-sélection grâce aux supers descriptions des véhicules et j’ai eu un rdv très rapide pour venir sur place voir les voitures. Au top !</p>
+            </div>
+            <!--Avis4-->
+            <div class="feature">
+                <div class="advice-title">
+                    <h3>Mia</h3>
+                    <div>
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
+                        <img class="star" src="assets/icon/star.png" alt="star">
                     </div>
-                <p class="advice">Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                </div>
+                </div> 
+                <p class="advice">Bon rapport qualité/prix (par rapport à d’autres garages alentours), je reviendrai et je recommande à tout mon entourage.</p>
             </div>
         </div>
-            
 
-        
-        
+        <br>
+                
+        <a class="write-advice" href="avis.html">Ajouter un avis</a>
 
     </main>
 
+    <!--FOOTER-->
     <footer>
-      <!--crédits-->
-      <p class="credits">
-        © Marlène PINAUD - 2024 - Toute reproduction interdite - Mentions
-        légales
-      </p>
+        <div>
+            <div>
+                <h5 class="title-footer">Horaires d'ouverture :</h5>
+                <ul class="horaires">
+                    <li>Lundi : 8h00-12h00 / 14h00-19h00</li>
+                    <li>Mardi : 8h00-12h00 / 14h00-19h00</li>
+                    <li>Mercredi : 8h00-12h00 / 14h00-19h00 </li>
+                    <li>Jeudi : 8h00-12h00 /14h00-19h00</li>
+                    <li>Vendredi : 8h00-18h00 </li>
+                    <li>Samedi : 9h00-12h00</li>
+                    <li>Dimanche: fermé</li>
+                </ul>
+            </div>
+          
+            <div>
+                <h5 class="title-footer">Nous trouver : </h5>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2578.4971615556724!2d5.682943786600018!3d45.18971032160149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1706525228005!5m2!1sfr!2sfr" width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+          
+        <div>
+            <p class="credits">© Marlène PINAUD - 2024 - Toute reproduction interdite - Mentions légales</p>
+            <ul class="list-unstyled d-flex">
+                <li class="ms-3"><a href="youtube.com"><img src="assets/icon/youtube.png" width="24" height="24" alt="youtube"></img></a></li>
+                <li class="ms-3"><a href="instagram.com"><img src="assets/icon/instagram.png" width="24" height="24" alt="instagram"></img></a></li>
+                <li class="ms-3"><a href="facebook.com"><img src="assets/icon/facebook.png" width="24" height="24" alt="facebook"></img></a></li>
+            </ul>
+        </div>
     </footer>
 
-    <!--BOOTSTRAP-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
+  
   </body>
 </html>
