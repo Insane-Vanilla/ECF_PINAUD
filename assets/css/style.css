@@ -1,0 +1,103 @@
+/*GENERAL */
+
+header, main, footer {
+    background-color: #313064 ;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+h1 {
+    font-family: "Stars & Love Bottom Heavy", sans-serif;
+    color:#FAF8E8;
+    font-size: 20px;
+}
+
+p {
+    font-family: 'TT Chocolates', sans-serif;
+    color: #FAF8E8;
+}
+
+.active {
+    text-decoration: underline;
+}
+
+/*HEADER*/
+
+.logo {
+    width: 300px;
+    height: auto;
+}
+
+.nav-link {
+    font-family: 'Lovelo-Black', sans-serif;
+    color: #FAF8E8;
+}
+
+.connexion {
+    color : #BF7641;
+    background-color: #FAF8E8;
+    font-family: "Stars & Love Bottom Heavy", sans-serif;
+}
+
+/*MAIN */
+
+.title1, .title2 {
+    display: flex;
+    flex-direction: row;
+    color: #FAF8E8;
+}
+
+.intro {
+    margin-left: 80px;
+    margin-right: 30px;
+}
+
+.title2 {
+    margin-top: 20px;
+}
+
+.voiture, .ecrous {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.images1 {
+    display: flex;
+    flex-direction: row;
+    margin-left: 80px;
+}
+
+.illu1 {
+    width: 380px;
+    height: auto;
+}
+
+/* LIVRE D'OR*/
+
+.advice-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.star {
+    width: 15px;
+    height: 15px;
+}
+
+.feature {
+    background-color: #FAF8E8;
+    margin-right: 10px;
+}
+
+.advice {
+    color: #313064;
+}
+/*FOOTER*/
+
+.credits {
+    text-align: center;
+    font-size: 10px;
+}
