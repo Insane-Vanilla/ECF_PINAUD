@@ -20,6 +20,11 @@ h3 {
     color:#313064;
 }
 
+h4 {
+    font-family: 'TT Chocolates', sans-serif;
+    color:#313064;
+}
+
 h5 {
     font-family: "Stars & Love Bottom Heavy", sans-serif;
     color:#BF7641;
@@ -58,7 +63,9 @@ p {
     font-weight: bold;
 }
 
-
+.underline {
+    text-decoration: underline;
+}
 
 /*HEADER*/
 
@@ -70,6 +77,11 @@ header {
 .logo {
     width: 150px;
     height: 150px;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
 }
 
     @media screen and (min-width:640px) {
@@ -84,6 +96,10 @@ header {
                 height: 350px;
             }
         }
+
+.logo:hover {
+    opacity: 0.8;
+}
 
 .main-nav {
     margin-top: 20px;
@@ -153,6 +169,7 @@ header {
 .btn-conn {
     margin-top: 150px;
     margin-left: 100px;
+    width: 200px;
     border: none;
     color: #BF7641;
     font-size: 25px;
@@ -176,7 +193,8 @@ header {
     text-decoration: none;
 }
 
-.title1, .title2, .title3, .title4, .title5 {
+.title1, .title2, .title3, .title4, .title5, 
+.title6, .title7, .title8 {
     margin-left: 80px;
     display: flex;
     flex-direction: row;
@@ -255,13 +273,13 @@ main {
     text-decoration: none;
 }
 
-.write-advice :visited {
+.write-advice:visited {
     color:#FAF8E8;
     text-decoration: none;
 }
 
-.write-advice a:hover {
-    color:#A6ADB1;
+.write-advice:hover {
+    opacity: 0.8;
     text-decoration: underline;
 
 }
@@ -514,11 +532,12 @@ label {
     opacity:0.5;
 }
 
-/*DETAILS FICHE VOITURE */
+
+/* PAGE DETAILS FICHE VOITURE */
 
 .container-fiche {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     margin-left: 140px;
     margin-right: 80px;
     background-color: #FAF8E8;
@@ -529,7 +548,7 @@ label {
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
-    width: 500px;
+    width: 1fr;
     display: flex;
     flex-direction: column;
 }
@@ -550,12 +569,239 @@ label {
     height: auto;
 }
 
+.header-description {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.titre-fiche {
+    font-size: 30px;
+    margin-bottom: 0px;
+    margin-top: 15px;
+}
+
+.sous-titre-fiche {
+    margin-top: 0px;
+}
+
+.prix-fiche {
+    font-size: 40px;
+    margin-top: 10px;
+}
+
+.description {
+    width: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    list-style: none;
+    font-family: 'TT Chocolates', sans-serif;
+    color: #313064;
+}
 
 
+/* PAGE CONTACT */
+
+.contact-container {
+    margin-left: 140px;
+    margin-right: 80px;
+    display: grid;
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-columns: 1fr 1fr;
+    grid-gap:30px;
+}
+
+.contact-zone {
+    display: grid;
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-columns: 1fr 1fr;
+    grid-gap:20px;
+}
+
+.contact-zone2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-zone3 {
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-zone4 {
+    line-height: 1;
+}
+
+.icon-contact {
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.rs-zone {
+    display: flex;
+    flex-direction: column;
+    font-family: 'TT Chocolates', sans-serif;
+}
+
+.rs-title {
+    margin-top: 0px;
+}
+
+.unstyled-list {
+    list-style: none;
+}
+
+.rs-zone a:link {
+    color: #FAF8E8;
+    text-decoration: none;
+}
+
+.rs-zone a:visited {
+    color: #FAF8E8;
+}
+
+.rs-zone a:hover {
+    color: #A6ADB1;
+    text-decoration: none;
+}
+
+.rs-zone img {
+    vertical-align: middle;
+}
+.rs-zone li {
+    margin-top: 10px;
+}
+
+.contact-form, .submit {
+    font-family: 'TT Chocolates', sans-serif;
+}
+
+.label-contact {
+    color: #FAF8E8;
+}
+
+.form-inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.form-input, .form-textarea {
+    background-color: #FAF8E8;
+    width: 75%;
+    font-family: 'TT Chocolates', sans-serif;
+    border: none;
+}
+
+.form-textarea {
+    height: 200px;
+}
+
+.text-label {
+    text-align: end;
+}
+.contact-input {
+    margin-left: 200px;
+}
+
+.submit {
+    background-color:#FAF8E8;
+    border : solid 3px #BF7641;
+    font-family: "Stars & Love Bottom Heavy", sans-serif;
+    border-radius: 30px;
+    width: 120px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.submit:hover {
+    opacity: 0.8;
+}
+
+.proto-zone {
+    display: flex;
+    justify-content: center;
+}
+
+.feed-ig {
+    width: 400px;
+    height: auto;
+}
 
 
+/*PAGE CONNEXION */
 
+.container-connection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+.connection{
+    width: 500px;
+    height: 200px;
+    border:#BF7641 2px solid;
+    background-color: #FAF8E8;
+}
 
+.connection-form {
+    font-family: 'TT Chocolates', sans-serif;
+    margin : 30px 10px 30px 10px;
+}
+
+.text-label-connection {
+    color: #313064;
+    font-size: 15px;
+    text-align: end;
+}
+
+.connection-inputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.connection-input {
+    background-color:white;
+    width: 75%;
+    height: 30px;
+    font-family: 'TT Chocolates', sans-serif;
+    border: none;
+}
+
+.connect {
+    background-color:#BF7641;
+    color: #FAF8E8;
+    font-family: "Stars & Love Bottom Heavy", sans-serif;
+    border: none;
+    border-radius: 30px;
+    width: 120px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.connect:hover {
+    opacity: 0.8;
+}
+
+.connection-button {
+    margin-left: 120px;
+}
 
 
 
@@ -608,7 +854,7 @@ label {
     flex-direction: row;
 }
 
-.logo-rs {
+.icon-rs {
     margin-right: 10px;
     width: 40px;
     height: 40px;
