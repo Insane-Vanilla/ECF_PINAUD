@@ -24,6 +24,9 @@
     <!--CSS-->
     <link rel="stylesheet" href="assets/css/style.css" />
 
+    <!--SCRIPT-->
+    <script src="js/stars.js" defer></script>
+
     <title>Bienvenue sur le site du garage Vincent Parrot</title>
   
 </head>
@@ -66,7 +69,36 @@
                 N'hésitez pas à nous communiquer vos éventuelles suggestions.
                 <br>
             </p>
+        </div>
+
+        <div class="note-container">
+            <div class="note">
+                <form class="note-form" action="" method="post">
+                    <div class="note-inputs">
+                        <label class="note-name" for="name">Votre prénom</label>
+                        <input class="note-input1" title="name" type="text" required="">
+                    </div>
+                    <div class="note-inputs">
+                        <label class="note-message" for="avis">Votre avis</label>
+                        <input class="note-input2" title="advice" type="text" required="">
+                    </div>
+                    <div class="note-inputs">
+                        <h3 class="title-note">Votre note</h3>
+                            <div class="stars">
+                                <img id="star-note" data-value="1" class="star-note" src="assets/icon/star.png" alt="star">
+                                <img id="star-note" data-value="2" class="star-note" src="assets/icon/star.png" alt="star">
+                                <img id="star-note" data-value="3" class="star-note" src="assets/icon/star.png" alt="star">
+                                <img id="star-note" data-value="4" class="star-note" src="assets/icon/star.png" alt="star">
+                                <img id="star-note" data-value="5" class="star-note" src="assets/icon/star.png" alt="star">
+                            </div>
+                            <span class="rating">-</span>
+                        <p id="note-send"></p>
+                    </div>
+                    <button type="submit" class="button-note">Envoyer</button>
+                </form>
             </div>
+        </div>
+        
         
      <!--revenir haut page-->
  
@@ -109,7 +141,5 @@
         <HR class="footer-bottom"></HR>
         <p class="credits">© Marlène PINAUD - 2024 - Toute reproduction interdite - Mentions légales</p>
     </footer>
-
-  
   </body>
 </html>

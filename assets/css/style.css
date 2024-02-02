@@ -765,7 +765,6 @@ label {
 .connection-inputs{
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
@@ -804,8 +803,97 @@ label {
 }
 
 
+/* PAGE LAISSER UN AVIS */
+
+.note-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.note {
+    width: 500px;
+    height: 450px;
+    border:#BF7641 2px solid;
+    background-color: #FAF8E8;
+}
+
+.note-form {
+    font-family: 'TT Chocolates', sans-serif;
+    margin : 30px 10px 30px 10px;
+}
+
+.note-name, .note-message {
+    color: #313064;
+    font-size: 15px;
+    text-align: end;
+}
+
+.note-message {
+    margin-top: 0;
+}
+
+.note-inputs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.note-input1, .note-input2 {
+    background-color:white;
+    width: 75%;
+    font-family: 'TT Chocolates', sans-serif;
+    border: none;
+}
+
+.note-input2{
+    height: 200px;
+}
+
+.button-note {
+    background-color:#BF7641;
+    color: #FAF8E8;
+    font-family: "Stars & Love Bottom Heavy", sans-serif;
+    border: none;
+    border-radius: 30px;
+    width: 120px;
+    height: 40px;
+    font-size: 18px;
+    margin-left: 120px;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.button-note:hover {
+    opacity: 0.8;
+}
 
 
+.note-name, .note-message {
+    color: #313064;
+}
+.title-note {
+    color:#313064;
+}
+.stars {
+    display: flex;
+    flex-direction: row;
+}
+.star-note {
+    width: 60px;
+    height: auto;
+    opacity: 0.5;
+}
+
+.checked {
+    opacity: 1;
+}
 
 
 /*FOOTER*/
