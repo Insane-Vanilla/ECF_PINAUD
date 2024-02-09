@@ -1,30 +1,29 @@
 <?php
 
+    require_once 'lib/pdo.php';
+    require_once 'lib/config.php';
+    require_once 'lib/car.php';
     require_once 'templates/header.php';
 
+    $error = false;
+    if(isset($_GET['idCar'])) {
+        $idCar = $_GET['idCar'];
+        $car = getCarById($pdo, $idCar);
+
+        if ($car["car_image"] === null){
+            $imagePath = "assets/images/logo.jpg";
+        } else {
+            $imagePath = "uploads/".$article["image_car"]."jpg";
+        }
+
+        if (!$car) {
+            $error = true;
+        }
+    } else {
+        $error = true;
+    }
 ?>
 
-  <body>
-    <!--HEADER-->
-
-    <header id="hautpage">
-        <!-- logo -->
-        <div><a href="index.html"><img class="logo" src="assets/images/logo.png" alt="logo PARROT"></a></div>
-            
-        <!-- navigation -->
-        <ul class="main-nav">
-            <li><a href="index.html">ACCUEIL</a></li>
-            <li><a href="services.html">L'ATELIER</a></li>
-            <li><a href="ventes.html">LES VOITURES</a></li>
-            <li><a href="contact.html">NOUS CONTACTER</a></li>  
-        </ul>
-        
-        <div class="button-connexion">
-            <a class="connexion" href="connexion.html"><button class="btn-conn" type="button">Mon espace</button></a>
-        </div>
-    </header>
-
-    
     <!--MAIN-->
     <main>
         <div class="title5">
@@ -32,36 +31,38 @@
         </div>
 
         <!--Fiche-->
+
+        <?php if (!$error) { ?>
         <div class="container-fiche">
             <div class="photos-fiche">
-                <img class="photo-main" src="assets/images/14.jpg" alt="voiture14">
+                <img class="photo-main" src="<?=$imagePath?>"  alt="<?=$car['brand']?>">
                 <div class="sec">
-                    <img class="photo-sec" src="assets/images/14.jpg" alt="voiture14">
-                    <img class="photo-sec" src="assets/images/14.jpg" alt="voiture14">
-                    <img class="photo-sec" src="assets/images/14.jpg" alt="voiture14">
-                    <img class="photo-sec" src="assets/images/14.jpg" alt="voiture14">
-                    <img class="photo-sec" src="assets/images/14.jpg" alt="voiture14">
+                    <img class="photo-sec" src="<?=$imagePath?>" alt="<?=$car['brand']?>">
+                    <img class="photo-sec" src="<?=$imagePath?>" alt="<?=$car['brand']?>">
+                    <img class="photo-sec" src="<?=$imagePath?>" alt="<?=$car['brand']?>">
+                    <img class="photo-sec" src="<?=$imagePath?>" alt="<?=$car['brand']?>">
+                    <img class="photo-sec" src="<?=$imagePath?>" alt="<?=$car['brand']?>">
                 </div>
             </div>
 
             <div class="description">
                 <div class="header-description">
                     <div>
-                        <h3 class="titre-fiche">ASTON MARTIN</h3>
-                        <h4 class="sous-titre-fiche">GT1 3CH DH AHS absbe</h4>
+                        <h3 class="titre-fiche"><?=$car['brand']?></h3>
+                        <h4 class="sous-titre-fiche"><?=$car['model']?></h4>
                     </div>
-                    <h3 class="prix-fiche">75 000 €</h3>
+                    <h3 class="prix-fiche"><?=$car['price']?>€</h3>
                 </div>
                 <div class="liste-description">
                     <ul>
-                        <li><span class="underline">Année de mise en circulation</span> : 2018</li>
-                        <li><span class="underline">Carburant</span> : Diesel</li>
-                        <li><span class="underline">Boîte de vitesse</span> : Manuelle</li>
-                        <li><span class="underline">Kilométrage</span> : 20 560 km</li>
-                        <li><span class="underline">Nombre de portes </span> : 3</li>
-                        <li><span class="underline">Nombre de places</span> : 5</li>
-                        <li><span class="underline">Couleur</span> : Bordeaux</li>
-                        <li><span class="underline">Puissance fiscale</span> : 7CV</li>
+                        <li><span class="underline">Année de mise en circulation</span> : <?=htmlentities($car['car_year'])?></li>
+                        <li><span class="underline">Carburant</span> : <?=htmlentities($car['fuel'])?></li>
+                        <li><span class="underline">Boîte de vitesse</span> : <?=htmlentities($car['gearbox'])?></li>
+                        <li><span class="underline">Kilométrage</span> : <?=htmlentities($car['mileage'])?>km</li>
+                        <li><span class="underline">Nombre de portes </span> : <?=htmlentities($car['doors'])?></li>
+                        <li><span class="underline">Nombre de places</span> : <?=htmlentities($car['seats'])?></li>
+                        <li><span class="underline">Couleur</span> : <?=htmlentities($car['color'])?></li>
+                        <li><span class="underline">Puissance fiscale</span> : <?=htmlentities($car['horsepower'])?>CV</li>
                         <li><span class="underline">Options</span> :
                             <ul>
                                 <li>Siège à mémoire de forme</li>
@@ -124,6 +125,9 @@
 
             </div>
         </div>
+        <?php } else { ?>
+        <h2>Voiture introuvable</h2>
+        <?php } ?>
 
 
     

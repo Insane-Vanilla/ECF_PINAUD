@@ -1,16 +1,16 @@
 <?php
 
-    require_once __DIR__.'templates/header.php';
-    require_once __DIR__.'lib/pdo.php';
-    require_once __DIR__.'lib/user.php';
-    require_once __DIR__.'lib/config.php';
+    require_once 'templates/header.php';
+    require_once 'lib/pdo.php';
+    require_once 'lib/user.php';
+    require_once 'lib/config.php';
 
 
 $errors = [];
 
 if (isset($_POST["loginUser"])) {
-  $email = $_POST["email"];
-  $password = $_POST["password"];
+  $email = $_POST["email_employee"];
+  $password = $_POST["password_employee"];
 
   $user = verifyUserLoginPassword($pdo, $email, $password);
 
@@ -24,8 +24,8 @@ if (isset($_POST["loginUser"])) {
 }
 
 if (isset($_POST["loginUser"])) {
-  $email = $_POST["email"];
-  $password = $_POST["password"];
+  $email = $_POST["email_admin"];
+  $password = $_POST["password_admin"];
 
   $admin = verifyAdminLoginPassword($pdo, $email, $password);
 
@@ -48,7 +48,7 @@ if (isset($_POST["loginUser"])) {
       </div>
       
       <!--Affichage éventuelle erreur -->
-      <?php foreach($erros as $error) { ?>
+      <?php foreach($errors as $error) { ?>
         <div class="error">
           <?=$errors; ?>
         </div>
@@ -104,5 +104,21 @@ if (isset($_POST["loginUser"])) {
         </div>
       </div>
     </main>
+
+    <!--FOOTER-->
+    <HR class="footer-top"></HR>
+    <footer>
+        <div class=" footer-login">
+            <div class="footer-login2">
+                <h5 class="title-footer">Accéder à votre espace personnel: </h5>
+                <p> Si vous avez des difficultés à vous connecter, contacter le 0800 152 152</p>
+            </div>
+            <img src="assets/images/logo.png" alt="logo" class="logo-footer-login>
+            
+
+        </div>
+        <HR class="footer-bottom"></HR>
+        <p class="credits">© Marlène PINAUD - 2024 - Toute reproduction interdite - Mentions légales</p>
+    </footer>
   </body>
 </html>

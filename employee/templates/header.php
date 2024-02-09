@@ -3,7 +3,6 @@
 require_once '/../../lib/config.php';
 require_once '/../../lib/session.php';
 
-adminOnly();
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +31,7 @@ adminOnly();
     <!--CSS-->
     <link rel="stylesheet" href="/assets/css/style.css" />
 
-    <title>Admin</title>
+    <title>Espace Employé</title>
   
 </head>
 
@@ -40,21 +39,21 @@ adminOnly();
 
 <aside>
   <p> Menu </p>
-  <a href="javascript:void(0)">
+  <a href="index.php">
     <i class="fa fa-user-o" aria-hidden="true"></i>
     Mon espace
   </a>
-  <a href="javascript:void(0)">
+  <a href="cars.php">
     <i class="fa fa-laptop" aria-hidden="true"></i>
-    Gérer les utilisateurs
+    Gestion des voitures en vente
   </a>
-  <a href="javascript:void(0)">
+  <a href="messages.php">
     <i class="fa fa-clone" aria-hidden="true"></i>
-    Horaires d'ouverture
+    Gestion des messages reçus
   </a>
-  <a href="javascript:void(0)">
+  <a href="reviews.php">
     <i class="fa fa-star-o" aria-hidden="true"></i>
-    Starred
+    Gestion des avis reçus
   </a>
   <a href="javascript:void(0)">
     <i class="fa fa-trash-o" aria-hidden="true"></i>

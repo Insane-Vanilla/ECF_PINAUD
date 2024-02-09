@@ -40,7 +40,7 @@
 
     <header id="hautpage">
         <!-- logo -->
-        <div><a href="index.html"><img class="logo" src="assets/images/logo.png" alt="logo PARROT"></a></div>
+        <div><a href="index.php"><img class="logo" src="assets/images/logo.png" alt="logo PARROT"></a></div>
             
         <!-- navigation -->
         <ul class="main-nav">
@@ -58,3 +58,4 @@
             <?php } ?>
         </div>
     </header>
+<main>

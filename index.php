@@ -1,32 +1,11 @@
 <?php
 
-    require_once __DIR__.'templates/header.php';
+    require_once 'templates/header.php';
+    require_once 'lib/config.php';
+    require_once 'lib/pdo.php';
 
 ?>
 
-  <body>
-    <!--HEADER-->
-
-    <header id="hautpage">
-        <!-- logo -->
-        <div><a href="index.html"><img class="logo" src="assets/images/logo.png" alt="logo PARROT"></a></div>
-            
-        <!-- navigation -->
-        <ul class="main-nav">
-            <li><a class="active" href="index.html">ACCUEIL</a></li>
-            <li><a href="services.html">L'ATELIER</a></li>
-            <li><a href="ventes.html">LES VOITURES</a></li>
-            <li><a href="contact.html">NOUS CONTACTER</a></li>  
-        </ul>
-        
-        <div class="button-connexion">
-            <a class="connexion" href="connexion.html"><button class="btn-conn" type="button">Mon espace</button></a>
-        </div>
-    </header>
-
-    
-    <!--MAIN-->
-    <main>
         <div class="title1">
             <img class="voiture" src="assets/icon/voiture.png" alt="voiture"><h1>Bienvenue sur le site du garage Vincent  Parrot</h1>
         </div>
@@ -116,7 +95,7 @@
 
         <br>
                 
-        <a class="write-advice" href="avis.html">Ajouter un avis</a>
+        <a class="write-advice" href="review.php">Ajouter un avis</a>
 
         <br>
      <!--revenir haut page-->
@@ -124,8 +103,8 @@
     <a class="hautpage" href="#hautpage"><img class="imghp" src="assets/icon/fleche.png" alt="revenir_haut_page"></a>
     <br>    
     
-</main>
+    </main>
 
 <?php
-    require_once __DIR__.'templates/footer.php';
+    require_once 'templates/footer.php';
 ?>
