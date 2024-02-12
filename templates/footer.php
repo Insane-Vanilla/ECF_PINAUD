@@ -3,19 +3,8 @@
     <HR class="footer-top"></HR>
     <footer>
         <div class=" footer">
-
-            <div class="horaires">
-                <h5 class="title-footer">Horaires d'ouverture :</h5>
-                <ul class="horaires-liste">
-                    <li><span class="bold">Lundi</span> : 8h00-12h00 / 14h00-19h00</li>
-                    <li><span class="bold">Mardi</span> : 8h00-12h00 / 14h00-19h00</li>
-                    <li><span class="bold">Mercredi</span> : 8h00-12h00 / 14h00-19h00 </li>
-                    <li><span class="bold">Jeudi</span> : 8h00-12h00 / 14h00-19h00</li>
-                    <li><span class="bold">Vendredi</span> : 8h00-18h00 </li>
-                    <li><span class="bold">Samedi</span> : 9h00-12h00</li>
-                    <li><span class="bold">Dimanche</span> : fermé</li>
-                </ul>
-            </div>
+            
+            <?php require_once "templates/openings_part.php"; ?>
 
             <div class="call-us">
                 <h5 class="title-footer">Nous appeler:</h5>
@@ -47,7 +36,7 @@
         <HR class="footer-bottom"></HR>
         <p class="credits">© Marlène PINAUD - 2024 - Toute reproduction interdite - Mentions légales</p>
     </footer>
+    <script src="/js/filters.js" async></script>
 
-  
   </body>
 </html>

@@ -1,27 +1,26 @@
 <?php
 
-    require_once 'lib/pdo.php';
-    require_once 'lib/config.php';
-    require_once 'lib/car.php';
     require_once 'templates/header.php';
+    require_once 'lib/config.php';
+    require_once 'lib/pdo.php';
+    require_once 'lib/car.php';
 
-    $error = false;
+
+    $car = getCarById($pdo, $idCar);
+
+    /*$error = false;
     if(isset($_GET['idCar'])) {
         $idCar = $_GET['idCar'];
         $car = getCarById($pdo, $idCar);
-
-        if ($car["car_image"] === null){
-            $imagePath = "assets/images/logo.jpg";
-        } else {
-            $imagePath = "uploads/".$article["image_car"]."jpg";
-        }
-
+        $imagePath = _CAR_IMAGES_FOLDER_.$car["idCar"]."jpg";
         if (!$car) {
             $error = true;
         }
     } else {
         $error = true;
     }
+*/
+
 ?>
 
     <!--MAIN-->

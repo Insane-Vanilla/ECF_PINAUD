@@ -21,7 +21,7 @@
     />
 
     <!--FAVICON-->
-    <link rel="icon" type="image/png" href="assets/icon/favicon.png">
+    <link rel="icon" type="image/png" href="/assets/icon/favicon.png">
 
     <!--FONTS-->
     <link href="https://db.onlinewebfonts.com/c/088f292cf151a6e496fc8cdc5441b3e3?family=Lovelo-Black" rel="stylesheet">
@@ -29,9 +29,10 @@
     <link href="https://fonts.cdnfonts.com/css/tt-chocolates" rel="stylesheet">
 
     <!--CSS-->
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/filtres.css"/>
 
-    <title>Bienvenue sur le site du garage Vincent Parrot</title>
+    <title>Garage Vincent Parrot</title>
   
 </head>
 

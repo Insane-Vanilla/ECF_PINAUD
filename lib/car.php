@@ -27,8 +27,6 @@ function getCars(PDO $pdo, int $limit = null, int $page = null): array
     return $cars;
 }
 
-//créer fonction pour récupérer toutes les voitures
-
 //créer fonction pour récupérer voitures par leur id
 
 function getCarById(PDO $pdo, int $idCar):array|bool
@@ -36,7 +34,7 @@ function getCarById(PDO $pdo, int $idCar):array|bool
     $query=$pdo->prepare("SELECT * FROM car WHERE idCar= :idCar");
     $query->bindValue(":idCar", $idCar, PDO::PARAM_INT);
     $query->execute();
-    return $query->fetchAll(PDO::FETCH_ASSOC);
+    return $query->fetch(PDO::FETCH_ASSOC);
 }
 
 // créer fonction pour récupérer les options

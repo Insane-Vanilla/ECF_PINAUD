@@ -18,34 +18,71 @@ $cars = getCars($pdo)
         <div class="container-vente">
 
             <!--filtres-->
-            <div class="filters">
-                <div class="filter-km">
+            <div class="container-filters">
+
+                <div class="wrapper">
+                    <!--filtre km-->
                     <label for="km">Kilométrage</label>
-                    <input class="custom-input" type="range" id="km" name="km" min="0" step="1" max="250000" value="250000" />
+        
+                    <div class="values">
+                        <p><span id="range1">200</span>-<span id="range2">250 000 km</span></p>
+                    </div>
+
+                    <div class="container-filter">
+                        <div class="slider-track"></div>
+                        <input id="slider1" type="range" min="200" max="250000" value="75000" step="100" onclick="slideOne()">
+                        <input id="slider2" type="range" min="200" max="250000" value="175000" step="100" onclick="slideTwo()">
+                    </div>
+
                     <div class="range-km">
                         <p class="km-scale">0km - 250 000 km</p>
                         <button class="reset">Réinitialiser</button>
                     </div>
                 </div>
 
-                <div class="filter-price">
+                <div class="wrapper">
+                    <!--filtre prix-->
                     <label for="price">Prix</label>
-                    <input id="price" type="range" name="price" step="50" min="500" max="77500" value="77500" />
+
+                    <div class="values">
+                        <p id="range3">500</p>
+                        <span>&dash;</span>
+                        <p id="range4">77 500€</p>
+                    </div>
+        
+                    <div class="container-filter">
+                        <div class="slider-track"></div>
+                        <input id="slider3" type="range" min="500" max="77500" value="10000" step="100" onclick="slideThree()">
+                        <input id="slider4" type="range" min="400" max="77500" value="50000" step="100" onclick="slideFour()">
+                    </div>
+
                     <div class="range-price">
-                        <p class="price-scale">500€ - 77 500€</p>
+                        <p class="price-scale">500€ - 77 500 €</p>
                         <button class="reset">Réinitialiser</button>
                     </div>
                 </div>
 
-                <div class="filter-year">
+                <div class="wrapper">
+                    <!--filtre année-->
                     <label for="year">Année</label>
-                    <input id="year" type="range" name="volume" step="1" min="1955" max="2023" value="2023" />
+
+                    <div class="values">
+                        <p id="range5">1955</p>
+                        <span>&dash;</span>
+                        <p id="range6">2023</p>
+                    </div>
+        
+                    <div class="container-filter">
+                        <div class="slider-track"></div>
+                        <input id="slider5" type="range" min="1955" max="250000" value="1980" step="1" onclick="slideFive()">
+                        <input id="slider6" type="range" min="2023" max="250000" value="2010" step="1" onclick="slideSix()">
+                    </div>
+
                     <div class="range-year">
-                        <p class="year-scale">1955-2023</p>
+                        <p class="year-scale">1955- 2023</p>
                         <button class="reset">Réinitialiser</button>
                     </div>
                 </div>
-
             </div>
 
             <!--catalogue-->
