@@ -7,10 +7,11 @@
 
 
 $reviews = getReviews($pdo);
+//$stars = getStars($pdo, $rating);
 
 ?>
 
-        <div class="title1">
+        <div class="title">
             <img class="voiture" src="assets/icon/voiture.png" alt="voiture"><h1>Bienvenue sur le site du garage Vincent  Parrot</h1>
         </div>
         <div class="intro">
@@ -31,7 +32,7 @@ $reviews = getReviews($pdo);
         </div>
 
         <!--LIVRE D'OR-->
-        <div class="title2">
+        <div class="title">
             <img class="ecrous" src="assets/icon/ecrous.png" alt="ecrous"><h1>Livre d'or</h1>
         </div>
         

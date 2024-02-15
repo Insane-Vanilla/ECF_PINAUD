@@ -25,7 +25,7 @@
 
     <!--MAIN-->
     <main>
-        <div class="title5">
+        <div class="title">
             <img class="voiture" src="assets/icon/voiture.png" alt="voiture"><h1>Fiche voiture</h1>
         </div>
 

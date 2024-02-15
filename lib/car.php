@@ -45,7 +45,6 @@ function getOptions(PDO $pdo, int $idOption):array|bool
     $query->bindValue(":idOption", $idOption, PDO::PARAM_INT);
     $query->execute();
     return $query->fetchAll(PDO::FETCH_ASSOC);
-
 }
 
 

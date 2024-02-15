@@ -9,7 +9,7 @@ let sliderTwo = document.getElementById("slider2");
 let displayValOne = document.getElementById("range1");
 let displayValTwo = document.getElementById("range2");
 
-let minGap = 1000;
+let minGap = 10;
 let sliderTrack = document.querySelector(".slider-track");
 let sliderMaxValue = document.getElementById("slider1").max;
 
@@ -23,6 +23,8 @@ function slideOne() {
     displayValOne.innerHTML = slideOne.value;
     fillColor();
 };
+
+console.log(slideOne.value);
 
 
 function slideTwo() {

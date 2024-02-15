@@ -8,7 +8,7 @@
     <main>
 
         <!--Laisser un avis-->
-        <div class="title8">
+        <div class="title">
             <img class="ecrous" src="assets/icon/ecrous.png" alt="ecrous"><h1>Laisser un avis</h1>
         </div>
 
@@ -44,14 +44,14 @@
                                 <img id="star-note" data-value="5" class="star-note" src="assets/icon/star.png" alt="star">
                             </div>
                             <span class="rating">-</span>
-                        <p id="note-send"></p>
+                            <p id="note-send"></p>
+                            
                     </div>
                     <button type="submit" class="button-note">Envoyer</button>
                 </form>
             </div>
         </div>
-        
-        
+
      <!--revenir haut page-->
  
         <a class="hautpage" href="#hautpage"><img class="imghp" src="assets/icon/fleche.png" alt="revenir_haut_page"></a>

@@ -1,42 +1,57 @@
 <?php
 
     require_once 'templates/header.php';
+    require_once 'lib/config.php';
+    require_once 'lib/pdo.php';
+    require_once 'lib/services.php';
+
+$text_Repairs = getRepairs($pdo);
+$text_Maintenance = getMaintenance($pdo);
+$text_Tires = getTires($pdo);
+$text_BodyWork = getBodyWork($pdo);
 
 ?>
 
     <!--MAIN-->
     <main>
 
-        <div class="title3">
+        <div class="title">
             <img class="moteur" src="assets/icon/moteur.png" alt="moteur"><h1>Nos services à l'atelier</h1>
         </div>
+
+        <div class="intro">
+            <p>Nos talentueux mécanos mettent tout en oeuvre pour entretenir et réparer votre véhicule, afin de vous apporter satisfaction. Le garage Parrot assure une prestation qualitative au meilleur prix.</p>
+            <p>Pour toute demande de devis, rendez-vous dans l'onglet <span class="bold">"Nous contacter"</span>.</p>
+        </div>
+        
         <div class="services-container">
             <div class="photos-container">
                 <img class="services-photos" src="assets/images/mecano2.jpg" alt="mecano2">
                 <img class="services-photos" src="assets/images/moteur.jpg" alt="moteur">
                 <img class="services-photos" src="assets/images/mecano3.jpg" alt="mecano3">
                 <img class="services-photos" src="assets/images/atelier3.jpg" alt="atelier3">
+                <img class="services-photos" src="assets/images/atelier1.jpg" alt="atelier1">
             </div>
 
             <div class="services-texte">
                 <h2>Réparations</h2>
                 <p class="justify-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio tempor orci dapibus ultrices in iaculis nunc. Lacus luctus accumsan tortor posuere ac ut consequat semper. Euismod lacinia at quis risus sed vulputate odio ut enim. Elit pellentesque habitant morbi tristique senectus. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Magna etiam tempor orci eu lobortis elementum. Posuere lorem ipsum dolor sit. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. A diam sollicitudin tempor id. Tellus molestie nunc non blandit.
+                    <?=nl2br($text_Repairs['description_service']);?>
                 </p>
                 <br>
                 <h2>Entretien</h2>
                 <p class="justify-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio tempor orci dapibus ultrices in iaculis nunc. Lacus luctus accumsan tortor posuere ac ut consequat semper. Euismod lacinia at quis risus sed vulputate odio ut enim. Elit pellentesque habitant morbi tristique senectus. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Magna etiam tempor orci eu lobortis elementum. Posuere lorem ipsum dolor sit. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. A diam sollicitudin tempor id. Tellus molestie nunc non blandit.
+                    <?=nl2br($text_Maintenance['description_service']);?>
                 </p>
                 <br>
                 <h2>Pneumatiques</h2>
                 <p class="justify-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio tempor orci dapibus ultrices in iaculis nunc. Lacus luctus accumsan tortor posuere ac ut consequat semper. Euismod lacinia at quis risus sed vulputate odio ut enim. Elit pellentesque habitant morbi tristique senectus. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Magna etiam tempor orci eu lobortis elementum. Posuere lorem ipsum dolor sit. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. A diam sollicitudin tempor id. Tellus molestie nunc non blandit.
+                    <?=nl2br($text_Tires['description_service']);?>
                 </p>
                 <br>
                 <h2>Carrosserie</h2>
                 <p class="justify-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio tempor orci dapibus ultrices in iaculis nunc. Lacus luctus accumsan tortor posuere ac ut consequat semper. Euismod lacinia at quis risus sed vulputate odio ut enim. Elit pellentesque habitant morbi tristique senectus. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Magna etiam tempor orci eu lobortis elementum. Posuere lorem ipsum dolor sit. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. A diam sollicitudin tempor id. Tellus molestie nunc non blandit.
+                    <?=nl2br($text_BodyWork['description_service']);?>
                 </p>
             </div>
         </div>

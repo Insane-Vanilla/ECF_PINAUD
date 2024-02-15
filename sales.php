@@ -11,7 +11,7 @@ $cars = getCars($pdo)
 
     <!--MAIN-->
     <main>
-        <div class="title4">
+        <div class="title">
             <img class="voiture" src="assets/icon/voiture.png" alt="voiture"><h1>Nos voitures d'occasion à la vente</h1>
         </div>
 
@@ -25,7 +25,7 @@ $cars = getCars($pdo)
                     <label for="km">Kilométrage</label>
         
                     <div class="values">
-                        <p><span id="range1">200</span>-<span id="range2">250 000 km</span></p>
+                        <p><span id="range1">200</span> - <span id="range2">500 000</span>km</p>
                     </div>
 
                     <div class="container-filter">
@@ -45,9 +45,8 @@ $cars = getCars($pdo)
                     <label for="price">Prix</label>
 
                     <div class="values">
-                        <p id="range3">500</p>
-                        <span>&dash;</span>
-                        <p id="range4">77 500€</p>
+                    <p><span id="range3">500</span> - <span id="range4">10 000</span>€</p>
+
                     </div>
         
                     <div class="container-filter">
@@ -67,15 +66,14 @@ $cars = getCars($pdo)
                     <label for="year">Année</label>
 
                     <div class="values">
-                        <p id="range5">1955</p>
-                        <span>&dash;</span>
-                        <p id="range6">2023</p>
+                    <p><span id="range5">1955</span> - <span id="range6">2023</span></p>
+
                     </div>
         
                     <div class="container-filter">
                         <div class="slider-track"></div>
-                        <input id="slider5" type="range" min="1955" max="250000" value="1980" step="1" onclick="slideFive()">
-                        <input id="slider6" type="range" min="2023" max="250000" value="2010" step="1" onclick="slideSix()">
+                        <input id="slider5" type="range" min="1955" max="2023" value="1980" step="1" onclick="slideFive()">
+                        <input id="slider6" type="range" min="1955" max="2023" value="2010" step="1" onclick="slideSix()">
                     </div>
 
                     <div class="range-year">

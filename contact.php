@@ -37,7 +37,7 @@
             </div>
 
             <div class="rs-zone">
-                <h2 class="rs-title">Les Bonus, l’avant/après, les nouvelles ventes en avant première :</h2>
+                <h2 class="rs-title">Les Bonus, les "avant/après", les nouvelles ventes en avant première :</h2>
                 <ul>
                     <li class="unstyled-list"><a href="www.youtube.com"><img class="icon-rs" src="assets/icon/youtube.png" alt="youtube">www.youtube.com/@garagevparrot</a></li>
                     <li class="unstyled-list"><a href="www.instagram.com"><img class="icon-rs" src="assets/icon/instagram.png" alt="instagram">www.instagram.com/@garagevparrot</a></li>

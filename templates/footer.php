@@ -1,4 +1,9 @@
+<?php
+    require_once 'lib/config.php';
+    require_once 'lib/pdo.php';
+    require_once 'lib/openings.php';
 
+?>
     <!--FOOTER-->
     <HR class="footer-top"></HR>
     <footer>
@@ -36,7 +41,10 @@
         <HR class="footer-bottom"></HR>
         <p class="credits">© Marlène PINAUD - 2024 - Toute reproduction interdite - Mentions légales</p>
     </footer>
+
+    <!--JS-->
     <script src="/js/filters.js" async></script>
+    <script src="/js/stars.js" async></script>
 
   </body>
 </html>

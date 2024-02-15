@@ -15,7 +15,7 @@ function adminOnly()
     if (!isset($_SESSION['user'])) {
         // Rediriger vers login
         header('location: ../login.php');
-    } else if ($_SESSION['user']['role'] != 'admin') {
+    } else if ($_SESSION != 'admin') {
         // Rediriger vers accueil
         header('location: ../index.php');
     }

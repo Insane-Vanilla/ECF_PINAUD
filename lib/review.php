@@ -38,4 +38,16 @@ function getReviewById (PDO $pdo, int $idReview ): array|bool
     return $query->fetchAll(PDO::FETCH_ASSOC);
 }
 
-// fonction 
+// fonction pour récupérer nombre étoiles
+
+function getStars(PDO $pdo, int $ratingStars) : array|bool
+{
+    $query=$pdo->prepare("SELECT * FROM review WHERE ratingStars= :ratingStars");
+    $query->bindValue(":ratingStars", $ratingStars, PDO::PARAM_INT);
+    $query->execute();
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// fonction pour approuver et publier un avis
+
+//function addReview ()

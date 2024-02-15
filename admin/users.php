@@ -1,16 +1,18 @@
 <?php
 
-require_once '/templates/header.php';
-require_once '../../lib/config.php';
-require_once '../lib/pdo.php';
-require_once '../lib/user.php;';
+    require_once '../lib/config.php';
+    require_once '../lib/pdo.php';
+    require_once '../lib/session.php';
+    require_once '../lib/user.php';
+    require_once 'templates/header.php';
+
 
 
 $errors = [];
 $notifications = [];
 
 if (isset($_POST['addUser'])) {
-    $add = addUser($pdo, $_POST['email_employee'], $_POST['password_employee']);
+    $add = addUser($pdo, $_POST['email'], $_POST['password']);
     if ($add) {
         $notifications[] = "Ajout bien pris en compte";
     } else { 
@@ -19,7 +21,7 @@ if (isset($_POST['addUser'])) {
 }
 
 if (isset($_POST['deleteUser'])) {
-    $delete = deleteUser($pdo, $_POST['email_employee']);
+    $delete = deleteUser($pdo, $_POST['email_employee'], $_POST['password_employee']);
     if ($delete) {
         $notifications[] = "Suppression bien prise en compte";
     } else { 
@@ -27,48 +29,75 @@ if (isset($_POST['deleteUser'])) {
     }
 }
 
-?>
-
-<h1>Gérer les utilisateurs</h1>
-    <?php
-        foreach ($notifications as $notification){ ?>
-            <div class="alerte">
-                <?=$notification;?>
-            </div>
-    <?php } ?>
-
-    <?php
-        foreach ($errors as $error){ ?>
-            <div class="alerte">
-                <?=$errors;?>
-            </div>
-    <?php } ?>
-
-    <!-- AJOUTER USER -->
-
-    <form class="box" action="" method="POST">
-        <h2>Ajouter un utilisateur</h2>
-            <h3>Saisir l'adresse mail</h3>
-                <input type="text" class="box-input" name="email" placeholder="Email" required />
-            <h2>Saisir un mot de passe temporaire</h2>
-            <input type="password" class="box-input" name="password" placeholder="Mot de passe" required />
-    
-            <input type="submit" name="addUser" value="Ajouter un utilisateur" class="button" />
-    </form>
-
-    <!-- SUPPRIMER USER -->
-
-    <form class="box" action="" method="GET">
-        <h2>Supprimer un utilisateur</h2>
-            <h3>Saisir l'adresse mail de l'utilisateur concerné</h3>
-                <input type="text" class="box-input" name="email_employee" placeholder="Email" required />
-            <input type="submit" name="deleteUser" value="Supprimer un utilisateur" class="button" />
-    </form>
-
-
-
-<?php
-
-require_once __DIR__.'/templates/footer.php'
+$users = getUsers($pdo);
 
 ?>
+    <div class="admin-users">
+        <h1>Gérer les utilisateurs</h1>
+            <?php
+                foreach ($notifications as $notification){ ?>
+                    <div class="alerte">
+                        <?=$notification;?>
+                    </div>
+            <?php } ?>
+
+            <?php
+                foreach ($errors as $error){ ?>
+                    <div class="alerte">
+                        <?=$errors;?>
+                    </div>
+            <?php } ?>
+
+        <!-- VOIR TOUS LES UTILISATEURS -->
+            <h2>Liste des utilisateurs</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Identifiant</th>
+                            <th scope="col">Adresse email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            foreach ($users as $user) { ?>
+                            <tr>
+                                <td><?=$user["idEmployee"];?></td>
+                                <td><?=$user["email_employee"];?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+
+        <br>
+        <!-- AJOUTER USER -->
+
+            <form class="box" action="" method="POST">
+                <h2>Ajouter un utilisateur</h2>
+                    <h3>Saisir l'adresse mail</h3>
+                        <input type="text" class="box-input" name="email" placeholder="Email" required />
+                    <h3>Saisir un mot de passe temporaire</h3>
+                    <input type="password" class="box-input" name="password" placeholder="Mot de passe" required />
+                    <br>
+                    <br>
+                    <input class="input-button" type="submit" name="addUser" value="Ajouter un utilisateur" class="button" />
+            </form>
+        <br>
+        <!-- SUPPRIMER USER -->
+
+            <form class="box" action="" method="GET">
+                <h2>Supprimer un utilisateur</h2>
+                    <h3>Saisir l'adresse mail de l'utilisateur concerné</h3>
+                        <input type="text" class="box-input" name="email_employee" placeholder="Email" required />
+                        <h3>Saisir de nouveau l'adresse mail de l'utilisateur</h3>
+                        <input type="text" class="box-input" name="email_employee" placeholder="Email" required />
+                        <br>
+                        <br>
+                        <input class="input-button" type="submit" name="deleteUser" value="Supprimer un utilisateur" class="button" />
+            </form>
+
+
+    </div>
+</body>
+
+
+</html>

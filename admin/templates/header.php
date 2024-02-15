@@ -1,9 +1,5 @@
 <?php 
 
-require_once '/../../lib/config.php';
-require_once '/../../lib/session.php';
-
-adminOnly();
 ?>
 
 <!DOCTYPE html>
@@ -30,44 +26,37 @@ adminOnly();
     <link href="https://fonts.cdnfonts.com/css/tt-chocolates" rel="stylesheet">
 
     <!--CSS-->
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/users.css" />
 
     <title>Admin</title>
   
 </head>
 
-<body>
-
-<aside>
-  <p> Menu </p>
-  <a href="javascript:void(0)">
-    <i class="fa fa-user-o" aria-hidden="true"></i>
-    Mon espace
-  </a>
-  <a href="javascript:void(0)">
-    <i class="fa fa-laptop" aria-hidden="true"></i>
-    Gérer les utilisateurs
-  </a>
-  <a href="javascript:void(0)">
-    <i class="fa fa-clone" aria-hidden="true"></i>
-    Horaires d'ouverture
-  </a>
-  <a href="javascript:void(0)">
-    <i class="fa fa-star-o" aria-hidden="true"></i>
-    Starred
-  </a>
-  <a href="javascript:void(0)">
-    <i class="fa fa-trash-o" aria-hidden="true"></i>
-    Trash
-  </a>
-</aside>
-
-<div class="social">
-  <a href="https://www.linkedin.com/in/florin-cornea-b5118057/" target="_blank">
-    <i class="fa fa-linkedin"></i>
-  </a>
-</div>
-
-
+<body class="body-users">
+    <aside>
+      <div class="container-menu">
+        <img class="logo2" src="../../assets/images/logo2.png" alt="logo">
+        <h1> Menu </h1>
+        <a href="index.php">
+          <i aria-hidden="true"></i>
+          Mon espace
+        </a>
+        <a href="users.php">
+          <i aria-hidden="true"></i>
+          Gérer les utilisateurs
+        </a>
+        <a href="opening.php">
+          <i aria-hidden="true"></i>
+          Gérer les horaires d'ouverture
+        </a>
+        <a href="services.php">
+          <i aria-hidden="true"></i>
+          Gérer les services proposés
+        </a>
+      </div>
+      <div class="footer-aside">
+        <h3>Administrateur site "Garage Vincent Parrot"</h3>
+        <p>Pour toute difficulté technique, appelez-nous au 0800 152 152</p>
+      </div> 
     
-
+    </aside>

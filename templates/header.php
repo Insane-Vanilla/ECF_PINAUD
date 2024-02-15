@@ -31,6 +31,7 @@
     <!--CSS-->
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/filtres.css"/>
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
 
     <title>Garage Vincent Parrot</title>
   

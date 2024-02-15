@@ -1,9 +1,8 @@
+/*****************************************************/
 /*FILTRES*/
 
-/*ESSAI*/
-
 .container-filters {
-    margin-left: 140px;
+    margin-bottom: 10px;
     display: -ms-grid;
     display: grid;
     display: flex;
@@ -20,6 +19,7 @@
 label {
     color:#FAF8E8;
     font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .container-filter {
@@ -106,15 +106,37 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .values {
     background-color: #BF7641;
-    width: 70%;
-    height: 30px;
+    width: 80%;
     position: relative;
     margin: auto;
-    padding: 10px 0;
     border-radius: 5px;
     text-align: center;
     font-size: 15px;
     color: black;
+    margin-bottom: -20px;
+}
+
+.km-scale, .price-scale, .year-scale {
+    color:#A6ADB1;
+    margin-top: -20px;
+}
+
+.reset {
+    margin-top: 5px;
+    background-color: #FAF8E8;
+    color:#313064;
+    border-radius: 10px;
+    height: 25px;
+    border: none;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.reset:hover {
+    opacity:0.5;
 }
 
 .values:before {
@@ -122,6 +144,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     position: absolute;
     height: 0;
     width: 0;
+    font-size: 8px;
     border-top: 15px solid #BF7641;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;

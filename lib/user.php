@@ -31,6 +31,23 @@ function verifyAdminLoginPassword(PDO $pdo, string $email, string $password)
     }
 }
 
+// fonction pour voir tous les employés
+
+function getUsers(PDO $pdo, int $limit = null):array
+{
+    $sql = "SELECT * FROM employee ORDER BY idEmployee ASC";
+    if ($limit){
+        $sql .= "LIMIT : limit";
+    }
+    $query = $pdo->prepare($sql);
+    if ($limit) {
+        $query-> bindValue(":limit", $limit, PDO::PARAM_INT);
+    }
+    $query-> execute();
+    $users = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $users;
+}
+
 //fonction pour ajouter un employé
 function addUser(PDO $pdo, string $email_employee, string $password_employee):bool
 {
@@ -43,7 +60,7 @@ function addUser(PDO $pdo, string $email_employee, string $password_employee):bo
 }
 
 //fonction pour supprimer un employé
-function deleteUser(PDO $pdo, string $email_employee):bool
+function deleteUser(PDO $pdo, string $email_employee, string $password_employee):bool
 {
     $sql ="DELETE FROM employee (email_employee, password_employee) VALUES (:email_employee, :password_employee)";
     $query =$pdo->prepare($sql);

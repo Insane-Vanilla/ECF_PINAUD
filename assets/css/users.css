@@ -1,0 +1,176 @@
+/*****************************************************/
+/*PARTIE ADMIN + EMPLOYES*/
+
+body {
+  background-color: #FAF8E8 ;
+}
+
+h1 {
+  font-family: "Stars & Love Bottom Heavy", sans-serif;
+  color: #313064;
+  font-size: 25px;
+}
+
+h2 {
+  font-family: "Lovelo-Black", sans-serif;
+  color: #BF7641;
+}
+
+h3 {
+  font-family: 'TT Chocolates', sans-serif;
+  color : #313064 ;
+  font-size: 20px;
+}
+
+p {
+  font-family: 'TT Chocolates', sans-serif;
+  color : #313064 ;
+
+}
+
+textarea {
+  font-family: 'TT Chocolates', sans-serif;
+  font-size: 18px;
+}
+
+.body-users {
+  display: flex;
+  flex-direction: row;
+}
+
+.input-button{
+  background-color:#BF7641;
+  color :#FAF8E8;
+  width: 160px;
+  height: 30px;
+  font-family: 'TT Chocolates', sans-serif;
+  border: none;
+}
+
+.input-button:hover {
+  opacity: 0.8;
+}
+
+.input-button2{
+  background-color:#BF7641;
+  color :#FAF8E8;
+  width: 60px;
+  height: 30px;
+  font-family: 'TT Chocolates', sans-serif;
+  border: none;
+}
+
+.input-button2:hover {
+  opacity: 0.8;
+}
+
+
+
+
+aside {
+    color: #FAF8E8;
+    font-family: 'TT Chocolates', sans-serif;
+    padding-left: 20px;
+    height: auto;
+    background-image: linear-gradient(30deg , #e59760, #BF7641 );
+    border-top-right-radius: 80px;
+  }
+
+.logo2 {
+  width: 200px;
+}
+
+  aside a {
+    font-size: 20px;
+    color:  #FAF8E8;
+    display: block;
+    padding: 12px;
+    display: flex;
+    padding-left: 30px;
+    text-decoration: none;
+    -webkit-tap-highlight-color:transparent;
+  }
+  
+  aside a:hover {
+    color: #BF7641;
+    background: #FAF8E8;
+    outline: none;
+  }
+  
+  aside a i {
+    margin-right: 5px;
+  }
+  
+  aside a:hover::after {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    bottom: 100%;
+    right: 0;
+    height: 35px;
+    width: 35px;
+    border-bottom-right-radius: 18px;
+    box-shadow: 0 20px 0 0 #FAF8E8;;
+  }
+  
+  aside a:hover::before {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    top: 38px;
+    right: 0;
+    height: 35px;
+    width: 35px;
+    border-top-right-radius: 18px;
+    box-shadow: 0 -20px 0 0 #FAF8E8;
+  }
+  
+  aside p {
+    margin: 0;
+    padding: 40px 0;
+  }
+  
+  .footer-aside {
+    width: 200px;
+    position: static;
+    bottom:0px;
+    flex-shrink: 0;
+    
+  }
+
+.accueil-admin,.admin-services, .admin-users, .admin-openings {
+  margin-top: 15%;
+  margin-left: 100px;
+  margin-bottom: 5%;
+}
+
+
+
+/* PAGE GERER UTILISATEURS */
+  
+/* Tableau */
+
+table {
+  font-family: 'TT Chocolates', sans-serif;
+  width: 300px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th {
+  font-size: 18px;
+}
+
+th, td {
+  border : 1px solid black;
+  padding : 15px;
+}
+
+
+/* PAGE GERER UTILISATEURS */
+  
+
+
+/*PAGE GERER SERVICES */
+
+

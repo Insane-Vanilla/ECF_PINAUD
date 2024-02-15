@@ -2,37 +2,37 @@
 
     require_once 'templates/header.php';
     require_once 'lib/pdo.php';
-    require_once 'lib/user.php';
     require_once 'lib/config.php';
+    require_once 'lib/user.php';
 
 
 $errors = [];
 
 if (isset($_POST["loginUser"])) {
-  $email = $_POST["email_employee"];
-  $password = $_POST["password_employee"];
+  $email = $_POST["email"];
+  $password = $_POST["password"];
 
   $user = verifyUserLoginPassword($pdo, $email, $password);
 
   if ($user) {
     session_regenerate_id(true);
     $_SESSION["user"]= $user;
-    header("location:index.php");
+    header("location:employee/index.php");
   } else {
     $errors[]= "Email ou mot de passe incorrect";
   }
 }
 
 if (isset($_POST["loginUser"])) {
-  $email = $_POST["email_admin"];
-  $password = $_POST["password_admin"];
+  $email = $_POST["email"];
+  $password = $_POST["password"];
 
   $admin = verifyAdminLoginPassword($pdo, $email, $password);
 
   if ($admin) {
     session_regenerate_id(true);
     $_SESSION["admin"]= $admin;
-    header("admin/location:index.php");
+    header("location:admin/index.php");
   } else {
     $errors[]= "Email ou mot de passe incorrect";
   }
@@ -42,16 +42,16 @@ if (isset($_POST["loginUser"])) {
 
     <!--MAIN-->
     <main>
-      <div class="title7">
+      <div class="title">
         <img class="moteur" src="assets/icon/moteur.png" alt="moteur" />
         <h1>Espace connexion</h1>
       </div>
       
       <!--Affichage éventuelle erreur -->
       <?php foreach($errors as $error) { ?>
-        <div class="error">
+          <div class="error">
           <?=$errors; ?>
-        </div>
+      </div>
       <?php } ?>
 
       <div class="container-connection">
@@ -109,12 +109,9 @@ if (isset($_POST["loginUser"])) {
     <HR class="footer-top"></HR>
     <footer>
         <div class=" footer-login">
-            <div class="footer-login2">
-                <h5 class="title-footer">Accéder à votre espace personnel: </h5>
-                <p> Si vous avez des difficultés à vous connecter, contacter le 0800 152 152</p>
-            </div>
-            <img src="assets/images/logo.png" alt="logo" class="logo-footer-login>
-            
+            <h5 class="title-footer">Accéder à votre espace personnel: </h5>
+            <p> Si vous avez des difficultés à vous connecter, contacter le 0 800 152 152</p>
+            <img src="assets/images/logo.png" alt="logo" class="logo-footer-login">
 
         </div>
         <HR class="footer-bottom"></HR>
