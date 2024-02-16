@@ -1,12 +1,24 @@
 <?php
 
-require_once '../lib/config.php';
-require_once '../lib/pdo.php';
-require_once '../lib/session.php';
-require_once '../lib/openings.php';
-require_once 'templates/header.php';
+    require_once '../lib/config.php';
+    require_once '../lib/pdo.php';
+    require_once '../lib/session.php';
+    require_once '../lib/openings.php';
+    require_once 'templates/header.php';
 
-$mondays = getMonday($pdo);
+$errors = [];
+$notifications = [];
+    
+if (isset($_POST['updatemo']) && ($_POST['updatemc']) && ($_POST['updateao']) && ($_POST['updateac'])) {
+    $newOpening = updateOpenings($pdo, $_POST['newmo'], $_POST['newmc'],$_POST['newao'],$_POST['newac']);
+    if ($newOpening) {
+        $notifications[] = "Modification(s) bien prise(s) en compte";
+    } else { 
+        $errors[] = "Une erreur s\'est produite lors de la(des) modification(s)";
+    }
+}
+     
+$openings = getOpenings($pdo);
 
 ?>
 
@@ -28,82 +40,24 @@ $mondays = getMonday($pdo);
                 </tr>
             </thead>
             <tbody>
+                <?php foreach ($openings as $opening) { ?>
                 <tr>
-                    <td>Lundi</td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-
+                    <td><?=ucfirst(htmlentities($opening["opening_day"]));?></td>
+                    <td><textarea name="newmo" id="" cols="10" rows="1"><?=$opening["morning_opening"];?></textarea></td>
+                    <td><input class="input-button2" type="submit" name="updatemo" value="Modifier" class="button" /></td>
+                    <td><textarea name="newmc" id="" cols="10" rows="1"><?=$opening["morning_closing"];?></textarea></td>
+                    <td><input class="input-button2" type="submit" name="updatemc" value="Modifier" class="button" /></td>
+                    <td><textarea name="newao" id="" cols="10" rows="1"><?=$opening["afternoon_opening"];?></textarea></td>
+                    <td><input class="input-button2" type="submit" name="unpdateao" value="Modifier" class="button" /></td>
+                    <td><textarea name="newac" id="" cols="10" rows="1"><?=$opening["afternoon_closing"];?></textarea></td>
+                    <td><input class="input-button2" type="submit" name="updateac" value="Modifier" class="button" /></td>
                 </tr>
-                <tr>
-                    <td>Mardi</td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                </tr>
-                <tr>
-                    <td>Mercredi</td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                </tr>
-                <tr>
-                    <td>Jeudi</td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                </tr>
-                <tr>
-                    <td>Vendredi</td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                </tr>
-                <tr>
-                    <td>Samedi</td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                    <td><textarea name="" id="" cols="10" rows="1"><?=$mondays["opening_hours"];?></textarea></td>
-                    <td><input class="input-button2" type="submit" name="" value="Modifier" class="button" /></td>
-                </tr>
+                <?php } ?>
 
             </tbody>
         </table>
 
 </div>
-
-
-
-
 
 </body>
 

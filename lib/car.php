@@ -29,10 +29,10 @@ function getCars(PDO $pdo, int $limit = null, int $page = null): array
 
 //créer fonction pour récupérer voitures par leur id
 
-function getCarById(PDO $pdo, int $idCar):array|bool
+function getCarById(PDO $pdo, int $id):array|bool
 {
     $query=$pdo->prepare("SELECT * FROM car WHERE idCar= :idCar");
-    $query->bindValue(":idCar", $idCar, PDO::PARAM_INT);
+    $query->bindValue(':idCar', $id, PDO::PARAM_INT);
     $query->execute();
     return $query->fetch(PDO::FETCH_ASSOC);
 }
@@ -50,12 +50,18 @@ function getOptions(PDO $pdo, int $idOption):array|bool
 
 // créer fonction pour récupérer les options des voitures
 
-//function getCarOptions(PDO $pdo, int $idCar, int $idOptions):array|bool
-//{
-//    $query=$pdo->prepare("SELECT * FROM car_options WHERE idCar=:idCar AND idOptions")
-//}
+function getCarOptions(PDO $pdo, int $id):array
+{
+    $sql="SELECT * FROM options
+            LEFT JOIN car_options ON car_options.idOption = options.idOption
+            WHERE car_options.idCar = :idCar";
+    $query=$pdo->prepare($sql);
+    $query->bindParam(":idCar", $id, PDO::PARAM_STR);
+    $query->execute();
+    $options = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $options;
 
-
+}
 
 
 //créer fonction pour ajouter une voiture

@@ -55,7 +55,7 @@
         </a>
       </div>
       <div class="footer-aside">
-        <h3>Administrateur site "Garage Vincent Parrot"</h3>
+        <p>Administrateur site "Garage Vincent Parrot"</p>
         <p>Pour toute difficulté technique, appelez-nous au 0800 152 152</p>
       </div> 
     

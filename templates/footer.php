@@ -3,14 +3,20 @@
     require_once 'lib/pdo.php';
     require_once 'lib/openings.php';
 
+$openings = getOpenings($pdo)
+
 ?>
     <!--FOOTER-->
     <HR class="footer-top"></HR>
     <footer>
         <div class=" footer">
-            
-            <?php require_once "templates/openings_part.php"; ?>
-
+            <div class="horaires">
+                <h5 class="title-footer">Horaires d'ouverture :</h5>
+                    <?php
+                    foreach ($openings as $opening) { ?>
+                    <?php require "openings_part.php"; ?>
+                    <?php } ?>
+            </div>
             <div class="call-us">
                 <h5 class="title-footer">Nous appeler:</h5>
                 <div class="contact-zone3">

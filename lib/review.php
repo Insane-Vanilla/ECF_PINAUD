@@ -2,26 +2,10 @@
 
 //fonction pour récupérer les avis
 
-function getReviews(PDO $pdo, int $limit = null, int $page = null): array
+function getReviews(PDO $pdo): array
 {
     $sql="SELECT * FROM review ORDER BY idReview ASC";
-    
-    if ($limit && !$page) {
-        $sql .= "LIMIT :limit";
-    }
-    if ($page){
-        $sql .= "LIMIT :offset, :limit";
-    }
-    
     $query=$pdo->prepare($sql);
-
-    if($limit){
-        $query->bindValue(":limit", $limit, PDO::PARAM_INT);
-    }
-    if ($page) {
-        $offset = ($page -1) * $limit;
-        $query->bindValue(":offset", $offset, PDO::PARAM_INT);
-    }
     $query->execute();
     $reviews = $query->fetchAll(PDO::FETCH_ASSOC);
     return $reviews;
@@ -50,4 +34,10 @@ function getStars(PDO $pdo, int $ratingStars) : array|bool
 
 // fonction pour approuver et publier un avis
 
-//function addReview ()
+function addReview ($pdo):array
+{
+    $sql="SELECT * FROM review WHERE approved= 1";
+    $query=$pdo->prepare($sql);
+    $query->execute();
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+}

@@ -1,5 +1,11 @@
 /*****************************************************/
-/*PARTIE ADMIN + EMPLOYES*/
+/*STYLE PARTIES GESTION ADMIN + EMPLOYES*/
+/*****************************************************/
+
+
+
+/*****************************************************/
+/*GENERAL */
 
 body {
   background-color: #FAF8E8 ;
@@ -138,14 +144,21 @@ aside {
     
   }
 
-.accueil-admin,.admin-services, .admin-users, .admin-openings {
+.sous-menu {
+  font-size: 10px;
+  margin-left: 20px;
+}
+
+.accueil-admin,.admin-services, .admin-users, .admin-openings
+.accueil-employe, .employe-cars, .employe-msgs, .employe-reviews {
   margin-top: 15%;
-  margin-left: 100px;
+  margin-left: 5%;
   margin-bottom: 5%;
+  margin-right: 20px;
 }
 
 
-
+/*****************************************************/
 /* PAGE GERER UTILISATEURS */
   
 /* Tableau */
@@ -167,10 +180,23 @@ th, td {
 }
 
 
-/* PAGE GERER UTILISATEURS */
-  
+
+/*****************************************************/
+/* PAGE GERER VOITURES */
+.img-list{
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.img-car-list {
+  width: 150px;
+}
 
 
+
+
+/*****************************************************/
 /*PAGE GERER SERVICES */
 
 

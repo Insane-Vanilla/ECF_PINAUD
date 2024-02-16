@@ -34,22 +34,22 @@ $text_BodyWork = getBodyWork($pdo);
             </div>
 
             <div class="services-texte">
-                <h2>Réparations</h2>
+                <h2 class="titre-service">Réparations</h2>
                 <p class="justify-text">
                     <?=nl2br($text_Repairs['description_service']);?>
                 </p>
                 <br>
-                <h2>Entretien</h2>
+                <h2 class="titre-service">Entretien</h2>
                 <p class="justify-text">
                     <?=nl2br($text_Maintenance['description_service']);?>
                 </p>
                 <br>
-                <h2>Pneumatiques</h2>
+                <h2 class="titre-service">Pneumatiques</h2>
                 <p class="justify-text">
                     <?=nl2br($text_Tires['description_service']);?>
                 </p>
                 <br>
-                <h2>Carrosserie</h2>
+                <h2 class="titre-service">Carrosserie</h2>
                 <p class="justify-text">
                     <?=nl2br($text_BodyWork['description_service']);?>
                 </p>

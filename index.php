@@ -10,7 +10,7 @@ $reviews = getReviews($pdo);
 //$stars = getStars($pdo, $rating);
 
 ?>
-
+    <main>
         <div class="title">
             <img class="voiture" src="assets/icon/voiture.png" alt="voiture"><h1>Bienvenue sur le site du garage Vincent  Parrot</h1>
         </div>

@@ -14,6 +14,6 @@
             <p class="car-price"><?=htmlentities($car["price"])?> €</p>
         </div>
         <footer class="footer-card">
-            <a class="fiche-voiture" href="details.php?id<?=$car["idCar"];?>"><button class="details">Détails</button></a>
+            <a class="fiche-voiture" href="details.php?id=<?=$car["idCar"];?>"><button class="details">Détails</button></a>
         </footer>
 </article>

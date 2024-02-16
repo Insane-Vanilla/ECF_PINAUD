@@ -2,21 +2,25 @@
 
 //créer fonction pour récupérer les horaires d'ouverture
 
-function getOpeningsById(PDO $pdo, int $id):array|bool
+function getOpenings(PDO $pdo):array
 {
-    $sql = "SELECT * FROM opening WHERE idOpening = :idOpening";
+    $sql = "SELECT * FROM opening ORDER BY idOpening ASC";
     $query = $pdo-> prepare ($sql);
-    $query->bindValue(":idOpening", $id, PDO::PARAM_INT);
     $query->execute();
-    return $query->fetch(PDO::FETCH_ASSOC);
+    $openings =$query->fetchAll(PDO::FETCH_ASSOC);
+    return $openings;
 }
 
+// fonction pour modifier les horaires d'ouverture
 
-//créer fonction pour modifier les horaires d'ouverture par jour
-function getMonday(PDO $pdo):array
+function updateOpenings(PDO $pdo, datetime $morning_opening, datetime $morning_closing, datetime $afternoon_opening, datetime $afternoon_closing):bool
 {
-    $sql = "SELECT opening_hours FROM opening WHERE opening_day = 'lundi'";
-    $query = $pdo-> prepare ($sql);
-    $query->execute();
-    return $query->fetch(PDO::FETCH_ASSOC);
+    $sql = "UPDATE openings SET morning_opening morning_closing afternoon_opening afternoon_closing";
+    $query= $pdo->prepare($sql);
+    $query->bindParam('morning_opening', $morning_opening, PDO::PARAM_STR);
+    $query->bindParam('morning_closing', $morning_closing, PDO::PARAM_STR);
+    $query->bindParam('afternoon_opening', $afternoon_opening, PDO::PARAM_STR);
+    $query->bindParam('afternoon_closing', $afternoon_closing, PDO::PARAM_STR);
+    return $query->execute();
+
 }

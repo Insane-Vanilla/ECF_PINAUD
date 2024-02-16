@@ -6,7 +6,7 @@
     
     <!--MAIN-->
     <main>
-        <div class="title6">
+        <div class="title">
             <img class="ecrous" src="assets/icon/ecrous.png" alt="ecrous"><h1>Nous contacter</h1>
         </div>
 

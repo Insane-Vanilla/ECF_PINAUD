@@ -1,8 +1,5 @@
 <?php 
 
-require_once '/../../lib/config.php';
-require_once '/../../lib/session.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -29,44 +26,49 @@ require_once '/../../lib/session.php';
     <link href="https://fonts.cdnfonts.com/css/tt-chocolates" rel="stylesheet">
 
     <!--CSS-->
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/users.css" />
 
-    <title>Espace Employé</title>
+    <title>Employé</title>
   
 </head>
 
-<body>
-
-<aside>
-  <p> Menu </p>
-  <a href="index.php">
-    <i class="fa fa-user-o" aria-hidden="true"></i>
-    Mon espace
-  </a>
-  <a href="cars.php">
-    <i class="fa fa-laptop" aria-hidden="true"></i>
-    Gestion des voitures en vente
-  </a>
-  <a href="messages.php">
-    <i class="fa fa-clone" aria-hidden="true"></i>
-    Gestion des messages reçus
-  </a>
-  <a href="reviews.php">
-    <i class="fa fa-star-o" aria-hidden="true"></i>
-    Gestion des avis reçus
-  </a>
-  <a href="javascript:void(0)">
-    <i class="fa fa-trash-o" aria-hidden="true"></i>
-    Trash
-  </a>
-</aside>
-
-<div class="social">
-  <a href="https://www.linkedin.com/in/florin-cornea-b5118057/" target="_blank">
-    <i class="fa fa-linkedin"></i>
-  </a>
-</div>
-
-
+<body class="body-users">
+    <aside>
+      <div class="container-menu">
+        <img class="logo2" src="../../assets/images/logo2.png" alt="logo">
+        <h1> Menu </h1>
+        <a href="index.php">
+          <i aria-hidden="true"></i>
+          Mon espace
+        </a>
+        <a href="#">
+          <i aria-hidden="true"></i>
+          Gérer les voitures
+        </a>
+        <a href="cars.php">
+          <i class="sous-menu" aria-hidden="true"></i>
+          Liste des voitures
+        </a>
+        <a href="addcar.php">
+          <i class="sous-menu" aria-hidden="true"></i>
+          Ajouter une voiture
+        </a>
+        <a href="deletecar.php">
+          <i class="sous-menu" aria-hidden="true"></i>
+          Supprimer une voiture
+        </a>
+        <a href="messages.php">
+          <i aria-hidden="true"></i>
+          Gérer les messages
+        </a>
+        <a href="reviews.php">
+          <i aria-hidden="true"></i>
+          Gérer les avis déposés
+        </a>
+      </div>
+      <div class="footer-aside">
+        <h3>Employé site "Garage Vincent Parrot"</h3>
+        <p>Pour toute difficulté technique, appelez-nous au 0800 152 152</p>
+      </div> 
     
-
+    </aside>
