@@ -30,13 +30,13 @@ $cars = getCars($pdo)
 
                     <div class="container-filter">
                         <div class="slider-track"></div>
-                        <input id="slider1" type="range" min="200" max="250000" value="75000" step="100" onclick="slideOne()">
-                        <input id="slider2" type="range" min="200" max="250000" value="175000" step="100" onclick="slideTwo()">
+                        <input id="slider1" type="range" min="200" max="250000" value="200" step="100" oninput="slideOne()">
+                        <input id="slider2" type="range" min="200" max="250000" value="250000" step="100" oninput="slideTwo()">
                     </div>
 
                     <div class="range-km">
                         <p class="km-scale">0km - 250 000 km</p>
-                        <button class="reset">Réinitialiser</button>
+                        <button onclick="resetKm()" class="resetkm">Réinitialiser</button>
                     </div>
                 </div>
 
@@ -51,13 +51,13 @@ $cars = getCars($pdo)
         
                     <div class="container-filter">
                         <div class="slider-track"></div>
-                        <input id="slider3" type="range" min="500" max="77500" value="10000" step="100" onclick="slideThree()">
-                        <input id="slider4" type="range" min="400" max="77500" value="50000" step="100" onclick="slideFour()">
+                        <input id="slider3" type="range" min="500" max="77500" value="500" step="100" oninput="slideThree()">
+                        <input id="slider4" type="range" min="500" max="77500" value="77500" step="100" oninput="slideFour()">
                     </div>
 
                     <div class="range-price">
                         <p class="price-scale">500€ - 77 500 €</p>
-                        <button class="reset">Réinitialiser</button>
+                        <button onclick="resetPrice()" class="resetprice">Réinitialiser</button>
                     </div>
                 </div>
 
@@ -72,13 +72,13 @@ $cars = getCars($pdo)
         
                     <div class="container-filter">
                         <div class="slider-track"></div>
-                        <input id="slider5" type="range" min="1955" max="2023" value="1980" step="1" onclick="slideFive()">
-                        <input id="slider6" type="range" min="1955" max="2023" value="2010" step="1" onclick="slideSix()">
+                        <input id="slider5" type="range" min="1955" max="2023" value="1955" step="1" oninput="slideFive()">
+                        <input id="slider6" type="range" min="1955" max="2023" value="2023" step="1" oninput="slideSix()">
                     </div>
 
                     <div class="range-year">
-                        <p class="year-scale">1955- 2023</p>
-                        <button class="reset">Réinitialiser</button>
+                        <p class="year-scale">1955 - 2023</p>
+                        <button onclick="resetYear()"class="resetyear">Réinitialiser</button>
                     </div>
                 </div>
             </div>

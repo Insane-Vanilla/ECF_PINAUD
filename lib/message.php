@@ -3,7 +3,7 @@
 
 // fonction pour enregistrer un message venant du formulaire
 
-function addMessages ($pdo, string $lastname, string $firstname, string $email, string $phone, string $content):bool 
+function addMessage ($pdo, string $lastname, string $firstname, string $email, string $phone, string $content):bool 
 {
     $sql="INSERT INTO messages (lastname, firstname, email, phone_number, content)
             VALUES (:lastname, :firstname, :email, :phone_number, :content)";
@@ -30,3 +30,24 @@ function getMessages(PDO $pdo):array
 
 
 //fonction pour récupérer l'employé qui a géré le message
+function getMessageManager(PDO $pdo, int $id):array
+{
+    $sql="SELECT * FROM employee
+            LEFT JOIN get_message ON get_message.idEmployee = employee.idEmployee
+            WHERE get_message.idMessage = :idMessage";
+    $query=$pdo->prepare($sql);
+    $query->bindParam(":idMessage", $id, PDO::PARAM_STR);
+    $query->execute();
+    $messagesManagers = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $messagesManagers;
+}
+
+// fonction pour confirmer le traitement d'un message
+
+function processMessage(PDO $pdo, int $processed): bool
+{
+    $sql="SELECT * FROM messages WHERE processed= :processed";
+    $query=$pdo->prepare($sql);
+    $query->bindParam(':processed', $processed, PDO::PARAM_STR);
+    return $query->execute();
+}

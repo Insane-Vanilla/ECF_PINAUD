@@ -20,7 +20,8 @@ $text_BodyWork = getBodyWork($pdo);
         </div>
 
         <div class="intro">
-            <p>Nos talentueux mécanos mettent tout en oeuvre pour entretenir et réparer votre véhicule, afin de vous apporter satisfaction. Le garage Parrot assure une prestation qualitative au meilleur prix.</p>
+            <p>Nos talentueux mécanos mettent tout en oeuvre pour entretenir et réparer votre véhicule, afin de vous apporter satisfaction.</p>
+            <p>Le garage Parrot assure une prestation qualitative au meilleur prix.</p>
             <p>Pour toute demande de devis, rendez-vous dans l'onglet <span class="bold">"Nous contacter"</span>.</p>
         </div>
         
@@ -29,8 +30,7 @@ $text_BodyWork = getBodyWork($pdo);
                 <img class="services-photos" src="assets/images/mecano2.jpg" alt="mecano2">
                 <img class="services-photos" src="assets/images/moteur.jpg" alt="moteur">
                 <img class="services-photos" src="assets/images/mecano3.jpg" alt="mecano3">
-                <img class="services-photos" src="assets/images/atelier3.jpg" alt="atelier3">
-                <img class="services-photos" src="assets/images/atelier1.jpg" alt="atelier1">
+                <img class="services-photos" src="assets/images/mecano1.jpg" alt="mecano1">
             </div>
 
             <div class="services-texte">

@@ -39,10 +39,9 @@ function getCarById(PDO $pdo, int $id):array|bool
 
 // créer fonction pour récupérer les options
 
-function getOptions(PDO $pdo, int $idOption):array|bool
+function getOptions(PDO $pdo):array|bool
 {
-    $query=$pdo->prepare("SELECT * FROM options WHERE idOption= :idOption");
-    $query->bindValue(":idOption", $idOption, PDO::PARAM_INT);
+    $query=$pdo->prepare("SELECT * FROM options ORDER BY idOption ASC");
     $query->execute();
     return $query->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -66,4 +65,31 @@ function getCarOptions(PDO $pdo, int $id):array
 
 //créer fonction pour ajouter une voiture
 
+function addCar(PDO $pdo, string $brand, string $model, int $price, string $fuel, string $gearbox, string $mileage, int $doors, int $seats, string $color, int $horsepower, datetime $car_year):bool
+{
+    $sql="INSERT INTO car (brand, model, price, fuel, gearbox, mileage, doors, seats, color, horsepower, car_year) VALUES (:brand, :model, :price, :fuel, :gearbox, :mileage, :doors, :seats, :color, :horsepower, :car_year)";
+    $query=$pdo->prepare($sql);
+    $query->bindParam(':brand', $brand, PDO::PARAM_STR);
+    $query->bindParam(':model', $model, PDO::PARAM_STR);
+    $query->bindParam(':price', $price, PDO::PARAM_STR);
+    $query->bindParam(':fuel', $fuel, PDO::PARAM_STR);
+    $query->bindParam(':gearbox', $gearbox, PDO::PARAM_STR);
+    $query->bindParam(':mileage', $mileage, PDO::PARAM_STR);
+    $query->bindParam(':doors', $doors, PDO::PARAM_STR);
+    $query->bindParam(':seats', $seats, PDO::PARAM_STR);
+    $query->bindParam(':color', $color, PDO::PARAM_STR);
+    $query->bindParam(':horsepower', $horsepower, PDO::PARAM_STR);
+    $query->bindParam(':car_year', $car_year, PDO::PARAM_STR);
+    return $query->execute();
+
+}
+
 //créer fonction pour supprimer une voiture
+
+function deleteCar(PDO $pdo, int $id):bool
+{
+    $sql="DELETE FROM car WHERE idCar=:idCar";
+    $query=$pdo->prepare($sql);
+    $query->bindValue(':idCar', $id, $pdo::PARAM_STR);
+    return $query->execute();
+}

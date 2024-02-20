@@ -6,9 +6,15 @@
     require_once '../lib/car.php';
     require_once 'templates/header.php';
 
+$errors = [];
+$notifications = [];
 
 $cars = getCars($pdo);
-//$carOptions = getCarOptions($pdo, $id);
+
+foreach ($cars as $car) {
+    $id = $car['idCar'];
+    $carOptions = getCarOptions($pdo, $id);
+}
 
 
 ?>
@@ -18,6 +24,20 @@ $cars = getCars($pdo);
 <div class="employe-cars">
 
     <h1>Gérer les voitures</h1>
+
+        <!--Gérer les notifications et les erreurs-->
+        <?php
+            foreach ($notifications as $notification){ ?>
+                <div class="alerte">
+                    <?=$notification;?>
+                </div>
+        <?php } ?>
+        <?php
+            foreach ($errors as $error){ ?>
+                <div class="alerte">
+                    <?=$error;?>
+                </div>
+        <?php } ?>
     
         <!--LISTE DES VOITURES -->
         <h2>Liste des voitures</h2>
@@ -41,7 +61,7 @@ $cars = getCars($pdo);
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($cars as $key => $car) { ?>
+                    <?php foreach ($cars as $key => $car) { ?>
                     <tr>
                         <td><?=htmlentities($car["idCar"])?></td>
                         <td>
@@ -65,35 +85,18 @@ $cars = getCars($pdo);
                         <td><?=ucfirst(htmlentities($car["seats"]))?></td>
                         <td><?=ucfirst(htmlentities($car["color"]))?></td>
                         <td><?=htmlentities($car["horsepower"])?> CV</td>
-                <?php } ?>
                         <td>
-                            <?php foreach ($carOptions as $carOption) { ?>
-                                <select name="options">
-                                    <option value="List">--Liste des options--</option>
-                                    <option value ="option"><?=ucfirst(htmlentities($carOption['option_description']))?></option>
-                                </select>
-                            <?php } ?>
+                            <select name="options">
+                                <option value="List">--Liste des options--</option>
+                                    <?php foreach ($carOptions as $carOption) { ?>
+                                        <option value ="option"><?=ucfirst(htmlentities($carOption['option_description']))?></option>
+                                    <?php } ?>
+                            </select>
                         </td>
-                
+                        <?php } ?>
+                </tr>  
             </tbody>
 
         </table>
-
-
-        <!--AJOUTER UNE VOITURE -->
-        <h2>Ajouter une voiture</h2>
-
-
-
-
-        <!--SUPPRIMER UNE VOITURE -->
-        <h2>Supprimer une voiture</h2>
-
-            <p>Indiquer l'identifiant de la voiture</p>
-            <input value="identifiant" type="text">
-            <p>Indiquer l'identifiant à nouveau</p>
-            <input value="identifiant" type="text">
-
-            <input type="submit" value="Confirmer la suppression">
 
 </div>

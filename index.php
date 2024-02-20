@@ -7,7 +7,6 @@
 
 
 $reviews = getReviews($pdo);
-//$stars = getStars($pdo, $rating);
 
 ?>
     <main>
@@ -39,9 +38,10 @@ $reviews = getReviews($pdo);
         <div class="livre-or">
             <!--Avis-->
             <?php
-                foreach ($reviews as $key => $review) { ?>
+                foreach ($reviews as $key => $review) {
+                    if($review['approved']===1) { ?>
                 <?php require "templates/review_part.php"; ?>
-            <?php } ?>
+            <?php }} ?>
         </div>
 
         <br>
@@ -52,7 +52,7 @@ $reviews = getReviews($pdo);
      <!--revenir haut page-->
  
     <a class="hautpage" href="#hautpage"><img class="imghp" src="assets/icon/fleche.png" alt="revenir_haut_page"></a>
-    <br>    
+    <br>
     
     </main>
 

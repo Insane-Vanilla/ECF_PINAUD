@@ -1,6 +1,6 @@
 const allStars = document.querySelectorAll(".star-note");
 const highlightedStars = [];
-const rating = document.querySelector(".rating");
+const rating = document.querySelector(".rating-input");
 
 //fonction d'initialisation
 init();
@@ -15,7 +15,7 @@ function init(){
 
 function saveRating(e){
     removeEventListenerToAllStars();
-    rating.innerText = e.target.dataset.value;
+    rating.value = e.target.dataset.value;
 }
 
 function removeEventListenerToAllStars(){

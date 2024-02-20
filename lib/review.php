@@ -22,22 +22,40 @@ function getReviewById (PDO $pdo, int $idReview ): array|bool
     return $query->fetchAll(PDO::FETCH_ASSOC);
 }
 
-// fonction pour récupérer nombre étoiles
 
-function getStars(PDO $pdo, int $ratingStars) : array|bool
+// fonction pour récupérer l'employé qui a géré l'avis
+function getReviewManager(PDO $pdo, int $id):array
 {
-    $query=$pdo->prepare("SELECT * FROM review WHERE ratingStars= :ratingStars");
-    $query->bindValue(":ratingStars", $ratingStars, PDO::PARAM_INT);
+    $sql="SELECT * FROM employee
+            LEFT JOIN manage_review ON manage_review.idEmployee = employee.idEmployee
+            WHERE manage_review.idReview = :idReview";
+    $query=$pdo->prepare($sql);
+    $query->bindParam(":idReview", $id, PDO::PARAM_STR);
     $query->execute();
-    return $query->fetchAll(PDO::FETCH_ASSOC);
+    $reviewManagers = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $reviewManagers;
+
+}
+
+//fonction pour enregistrer un avis
+
+function addReview (PDO $pdo, string $firstname, string $content, int $ratingStars, int $approved):bool
+{
+    $sql = "INSERT INTO review (firstname, content, ratingStars, approved) VALUES (:firstname, :content, :ratingStars, :approved)";
+    $query = $pdo ->prepare ($sql);
+    $query->bindParam(':firstname', $firstname, PDO::PARAM_STR);
+    $query->bindParam(':content', $content, PDO::PARAM_STR);
+    $query->bindParam(':ratingStars', $ratingStars, PDO::PARAM_STR);
+    $query->bindParam(':approved', $approved, PDO::PARAM_STR);
+    return $query->execute();
 }
 
 // fonction pour approuver et publier un avis
 
-function addReview ($pdo):array
+function publishReview (PDO $pdo, int $approved):bool
 {
-    $sql="SELECT * FROM review WHERE approved= 1";
+    $sql="SELECT * FROM review WHERE approved= :approved";
     $query=$pdo->prepare($sql);
-    $query->execute();
-    return $query->fetchAll(PDO::FETCH_ASSOC);
+    $query->bindParam(':approved', $approved, PDO::PARAM_STR);
+    return $query->execute();
 }

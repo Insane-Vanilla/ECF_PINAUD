@@ -9,7 +9,7 @@ $openings = getOpenings($pdo)
     <!--FOOTER-->
     <HR class="footer-top"></HR>
     <footer>
-        <div class=" footer">
+        <div class="footer">
             <div class="horaires">
                 <h5 class="title-footer">Horaires d'ouverture :</h5>
                     <?php
@@ -49,8 +49,8 @@ $openings = getOpenings($pdo)
     </footer>
 
     <!--JS-->
-    <script src="/js/filters.js" async></script>
-    <script src="/js/stars.js" async></script>
+    <script src="/js/filters.js"></script>
+    <script src="/js/stars.js"></script>
 
   </body>
 </html>

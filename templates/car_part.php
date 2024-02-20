@@ -4,7 +4,10 @@
 ?>
 
 
-<article class="card">
+<article data-km="<?=htmlentities($car["mileage"])?>"
+        data-price="<?=htmlentities($car["price"])?>"
+        data-year="<?=htmlentities($car["car_year"])?>"
+        class="card">
     <img src="uploads/<?=$car["idCar"]?>.jpg" alt="<?=htmlentities($car["brand"])?>">
         <div class="content">
             <p class="car-name"><?=htmlentities($car["brand"])?></p>

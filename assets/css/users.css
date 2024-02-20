@@ -28,7 +28,7 @@ h3 {
   font-size: 20px;
 }
 
-p {
+p, option {
   font-family: 'TT Chocolates', sans-serif;
   color : #313064 ;
 
@@ -149,7 +149,7 @@ aside {
   margin-left: 20px;
 }
 
-.accueil-admin,.admin-services, .admin-users, .admin-openings
+.accueil-admin,.admin-services, .admin-users, .admin-openings,
 .accueil-employe, .employe-cars, .employe-msgs, .employe-reviews {
   margin-top: 15%;
   margin-left: 5%;
@@ -157,6 +157,62 @@ aside {
   margin-right: 20px;
 }
 
+.alerte {
+  font-family: "Stars & Love Bottom Heavy", sans-serif;
+  color:#FAF8E8;
+  background-color: #BF7641;
+}
+
+
+
+.label-contact {
+  color: #FAF8E8;
+}
+
+.form-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.form-input, .form-textarea {
+  background-color: white;
+  width: 60%;
+  font-family: 'TT Chocolates', sans-serif;
+  border: none;
+}
+
+.form-textarea {
+  height: 200px;
+}
+
+.text-label, .upload {
+  text-align: end;
+  font-family: 'TT Chocolates', sans-serif;
+}
+
+.submit {
+  background-color:#BF7641;
+  color :#FAF8E8;
+  font-family: "Stars & Love Bottom Heavy", sans-serif;
+  border-radius: 30px;
+  width: 160px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.submit:hover {
+  opacity: 0.8;
+}
+
+.little {
+  font-size: 8px;
+}
 
 /*****************************************************/
 /* PAGE GERER UTILISATEURS */

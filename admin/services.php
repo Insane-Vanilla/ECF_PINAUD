@@ -17,6 +17,30 @@ if (isset($_POST['updateRepairs'])) {
         $errors[] = "Une erreur s\'est produite lors de la modification";
     }
 }
+if (isset($_POST['updateMaintenance'])) {
+    $newMaintenance = updateMaintenance($pdo, htmlspecialchars($_POST['textarea-maintenance']));
+    if ($newMaintenance) {
+        $notifications[] = "Modification bien prise en compte";
+    } else { 
+        $errors[] = "Une erreur s\'est produite lors de la modification";
+    }
+}
+if (isset($_POST['updateTires'])) {
+    $newTires = updateTires($pdo, $_POST['textarea-tires']);
+    if ($newTires) {
+        $notifications[] = "Modification bien prise en compte";
+    } else { 
+        $errors[] = "Une erreur s\'est produite lors de la modification";
+    }
+}
+if (isset($_POST['updateBodyWork'])) {
+    $newBodyWork = updateBodyWork($pdo, $_POST['textarea-bodywork']);
+    if ($newBodyWork) {
+        $notifications[] = "Modification bien prise en compte";
+    } else { 
+        $errors[] = "Une erreur s\'est produite lors de la modification";
+    }
+}
 
 
 $text_Repairs = getRepairs($pdo);
@@ -28,22 +52,42 @@ $text_BodyWork = getBodyWork($pdo);
 <div class="admin-services">
     <h1>Gérer les services proposés</h1>
 
+        <!--Gérer les notifications et les erreurs-->
+        <?php
+            foreach ($notifications as $notification){ ?>
+                <div class="alerte">
+                    <?=$notification;?>
+                </div>
+            <?php } ?>
+        <?php
+            foreach ($errors as $error){ ?>
+                <div class="alerte">
+                    <?=$error;?>
+                </div>
+        <?php } ?>
+
+        <!--MODIFIER REPARATIONS-->
         <h2>Réparations</h2>
+        
+            <form action="" method="POST">
+                <textarea name="textarea-repairs" cols="100" rows="10">
+                    <?=nl2br($text_Repairs['description_service']);?>
+                </textarea>
+                <br>
+                <input class="input-button" type="submit" name="updateRepairs" value="Modifier le texte" class="button" />
+            </form>
 
-            <textarea name="textarea-repairs" cols="100" rows="10">
-                <?=nl2br($text_Repairs['description_service']);?>
-            </textarea>
-            <br>
-            <input class="input-button" type="submit" name="updateRepairs" value="Modifier le texte" class="button" />
-
+        <!--MODIFIER ENTRETIEN-->
         <h2>Entretien</h2>
 
-            <textarea name="textarea-maintenance" cols="100" rows="10">
-                <?=nl2br($text_Maintenance['description_service']);?>
-            </textarea>
-            <br>
-            <input class="input-button" type="submit" name="updateMaintenance" value="Modifier le texte" class="button" />
-
+            <form action="" method="POST">
+                <textarea name="textarea-maintenance" cols="100" rows="10">
+                    <?=nl2br($text_Maintenance['description_service']);?>
+                </textarea>
+                <br>
+                <input class="input-button" type="submit" name="updateMaintenance" value="Modifier le texte" class="button" />
+            </form>
+        <!--MODIFIER PNEUMATIQUES-->
         <h2>Pneumatiques</h2>
 
             <textarea name="textarea-tires" cols="100" rows="10">
@@ -52,6 +96,7 @@ $text_BodyWork = getBodyWork($pdo);
             <br>
             <input class="input-button" type="submit" name="updateTires" value="Modifier le texte" class="button" />
 
+        <!--MODIFIER CARROSSERIE-->
         <h2>Carrosserie</h2>
 
             <textarea name="textarea-bodywork" cols="100" rows="10">

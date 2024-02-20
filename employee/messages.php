@@ -4,9 +4,25 @@
     require_once '../lib/pdo.php';
     require_once '../lib/session.php';
     require_once '../lib/message.php';
+    require_once '../lib/user.php';
     require_once 'templates/header.php';
 
 $messages = getMessages($pdo);
+$users = getUsers($pdo);
+
+foreach ($users as $user) {
+    $id = $user['idEmployee'];
+    $managers = getMessageManager($pdo, $id);
+}
+
+if (isset($_POST['processed'])) {
+    $processed = publishReview($pdo, $_POST['approved']===1);
+    if ($publish) {
+        $notifications[] = "Avis publié";
+    } else { 
+        $errors[] = "Une erreur s\'est produite lors de la publication";
+    }
+}
 
 ?>
 
@@ -35,24 +51,22 @@ $messages = getMessages($pdo);
                     <td><?=htmlentities($message["email"]);?></td>
                     <td><?=$message["phone_number"];?></td>
                     <td><?=htmlentities($message["content"]);?></td>
-                    <td> 
-                        <!-- foreach message
-                        if 
-                    - si pas traité : 
-                        <select name="users">
-                            <option value="">--Sélectionner un employé--</option>
-                            (foreach $users as $user) { 
-                            <option value = $user['email_employe']>$user['email_employe'</option> }
-                        </select>
-
-
-                    - si traité : afficher employé qui a traité le message 
-                        --> 
-            </td>
-
+                    <td><?php if ($message['processed']===1) {
+                                foreach ($managers as $manager)
+                                    { ?><?=(htmlentities($manager['email_employee']))?>
+                                <?php }
+                                } else { ?>
+                                    <select name="users">
+                                        <option value="">--Sélectionner un employé--</option>
+                                        <?php foreach ($users as $user) {?>
+                                            <option value=""><?=(htmlentities($user['email_employee']))?></option>
+                                        <?php }?>
+                                    </select>
+                                    <input type="submit" name="processed" value="Valider">
+                          <?php } ?>
+                    </td>
                 </tr>
                 <?php } ?>
-
             </tbody>
         </table>
 

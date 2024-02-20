@@ -50,7 +50,7 @@ if (isset($_POST["loginUser"])) {
       <!--Affichage éventuelle erreur -->
       <?php foreach($errors as $error) { ?>
           <div class="error">
-          <?=$errors; ?>
+          <?=$error; ?>
       </div>
       <?php } ?>
 

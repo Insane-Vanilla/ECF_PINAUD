@@ -12,20 +12,11 @@ $errors = [];
 $notifications = [];
 
 if (isset($_POST['addUser'])) {
-    $add = addUser($pdo, $_POST['email'], $_POST['password']);
+    $add = addUser($pdo, $_POST['email'], $_POST['password'], (int)$_POST['idAdmin']=1);
     if ($add) {
         $notifications[] = "Ajout bien pris en compte";
     } else { 
         $errors[] = "Une erreur s\'est produite lors de l\'ajout";
-    }
-}
-
-if (isset($_POST['deleteUser'])) {
-    $delete = deleteUser($pdo, $_POST['email_employee'], $_POST['password_employee']);
-    if ($delete) {
-        $notifications[] = "Suppression bien prise en compte";
-    } else { 
-        $errors[] = "Une erreur s\'est produite lors de la suppression";
     }
 }
 
@@ -34,6 +25,8 @@ $users = getUsers($pdo);
 ?>
     <div class="admin-users">
         <h1>Gérer les utilisateurs</h1>
+
+            <!--Gérer les notifications et les erreurs-->
             <?php
                 foreach ($notifications as $notification){ ?>
                     <div class="alerte">
@@ -48,7 +41,7 @@ $users = getUsers($pdo);
                     </div>
             <?php } ?>
 
-        <!-- VOIR TOUS LES UTILISATEURS -->
+            <!-- VOIR TOUS LES UTILISATEURS -->
             <h2>Liste des utilisateurs</h2>
                 <table>
                     <thead>
@@ -68,27 +61,25 @@ $users = getUsers($pdo);
                     </tbody>
                 </table>
 
-        <br>
-        <!-- AJOUTER USER -->
+            <br>
+            <!-- AJOUTER USER -->
 
             <form class="box" action="" method="POST">
                 <h2>Ajouter un utilisateur</h2>
                     <h3>Saisir l'adresse mail</h3>
                         <input type="text" class="box-input" name="email" placeholder="Email" required />
                     <h3>Saisir un mot de passe temporaire</h3>
-                    <input type="password" class="box-input" name="password" placeholder="Mot de passe" required />
+                        <input type="password" class="box-input" name="password" placeholder="Mot de passe" required />
                     <br>
                     <br>
                     <input class="input-button" type="submit" name="addUser" value="Ajouter un utilisateur" class="button" />
             </form>
-        <br>
-        <!-- SUPPRIMER USER -->
+            <br>
+            <!-- SUPPRIMER USER -->
 
-            <form class="box" action="" method="GET">
+            <form class="box" action="" method="POST">
                 <h2>Supprimer un utilisateur</h2>
                     <h3>Saisir l'adresse mail de l'utilisateur concerné</h3>
-                        <input type="text" class="box-input" name="email_employee" placeholder="Email" required />
-                        <h3>Saisir de nouveau l'adresse mail de l'utilisateur</h3>
                         <input type="text" class="box-input" name="email_employee" placeholder="Email" required />
                         <br>
                         <br>
