@@ -41,6 +41,11 @@ Pour l'ajout d'un administrateur
         puis ENTRER
 
 3) Le nouvel administrateur est créé dans la base de données, vous pouvez ainsi vous connecter via la page http://garagevparrot.local/login.php 
+
+4) Vous pouvez ainsi accéder au menu de gauche à toutes les fonctionnalités du profil administrateur : 
+    - Gérer les profils employés
+    - Modifier les horaires d'ouverture présents sur le pied de page du site
+    - Modifier le texte décrivant les différents services proposés par le garage
  
  
 

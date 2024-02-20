@@ -5,7 +5,7 @@
     require_once '../lib/session.php';
     require_once 'templates/header.php';
 
-//adminOnly();
+adminOnly();
 
 ?>
 <div class="accueil-admin">

@@ -5,36 +5,23 @@
     require_once 'lib/config.php';
     require_once 'lib/user.php';
 
-
 $errors = [];
+$notifications=[];
 
-if (isset($_POST["loginUser"])) {
-  $email = $_POST["email"];
-  $password = $_POST["password"];
-
-  $user = verifyUserLoginPassword($pdo, $email, $password);
-
+// Vérification identifiants de connexion
+if (isset($_POST['loginUser'])) {
+  $user = verifyUserLoginPassword($pdo, $_POST['email'], $_POST['password']);
+  $admin = verifyAdminLoginPassword($pdo, $_POST['email'], $_POST['password']);
   if ($user) {
     session_regenerate_id(true);
-    $_SESSION["user"]= $user;
-    header("location:employee/index.php");
-  } else {
-    $errors[]= "Email ou mot de passe incorrect";
-  }
-}
-
-if (isset($_POST["loginUser"])) {
-  $email = $_POST["email"];
-  $password = $_POST["password"];
-
-  $admin = verifyAdminLoginPassword($pdo, $email, $password);
-
-  if ($admin) {
-    session_regenerate_id(true);
-    $_SESSION["admin"]= $admin;
-    header("location:admin/index.php");
-  } else {
-    $errors[]= "Email ou mot de passe incorrect";
+    $_SESSION['user']= $user;
+    header('location:employee/index.php');
+    } elseif ($admin) {
+      session_regenerate_id(true);
+      $_SESSION['admin']= $admin;
+      header('location:admin/index.php');
+    } else {
+      $errors[]= 'Email ou mot de passe incorrect';
   }
 }
 
@@ -47,13 +34,21 @@ if (isset($_POST["loginUser"])) {
         <h1>Espace connexion</h1>
       </div>
       
-      <!--Affichage éventuelle erreur -->
-      <?php foreach($errors as $error) { ?>
-          <div class="error">
-          <?=$error; ?>
-      </div>
+      <!--Gérer les notifications et les erreurs-->
+      <?php
+          foreach ($notifications as $notification){ ?>
+            <div class="alerte">
+              <?=$notification;?>
+            </div>
+      <?php } ?>
+      <?php
+          foreach ($errors as $error){ ?>
+            <div class="alerte">
+                <?=$error;?>
+            </div>
       <?php } ?>
 
+      <!--FORMULAIRE DE CONNEXION -->
       <div class="container-connection">
         <div class="connection">
           <form
@@ -61,8 +56,7 @@ if (isset($_POST["loginUser"])) {
             id="connection-form"
             name="connection-form"
             accept-charset="utf-8"
-            action=""
-            method="post"
+            method="POST"
           >
             <div class="connection-inputs">
               <label
@@ -96,9 +90,7 @@ if (isset($_POST["loginUser"])) {
             </div>
 
             <div class="connection-button">
-              <a href="#"
-                ><input class="connect" type="submit" name="loginUser" value="Se connecter"
-              /></a>
+            <input class="connect" type="submit" name="loginUser" value="Se connecter"/>
             </div>
           </form>
         </div>

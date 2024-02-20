@@ -20,6 +20,15 @@ if (isset($_POST['addUser'])) {
     }
 }
 
+if (isset($_POST['deleteUser'])) {
+    $delete = deleteUser($pdo, $id);
+    if ($delete) {
+        $notifications[] = "Ajout bien pris en compte";
+    } else { 
+        $errors[] = "Une erreur s\'est produite lors de l\'ajout";
+    }
+}
+
 $users = getUsers($pdo);
 
 ?>

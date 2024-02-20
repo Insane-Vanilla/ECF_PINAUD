@@ -9,15 +9,46 @@
 $errors = [];
 $notifications = [];
     
-if (isset($_POST['updatemo']) && ($_POST['updatemc']) && ($_POST['updateao']) && ($_POST['updateac'])) {
-    $newOpening = updateOpenings($pdo, $_POST['newmo'], $_POST['newmc'],$_POST['newao'],$_POST['newac']);
-    if ($newOpening) {
+if (isset($_POST['updatemo']))
+{
+    $newMorningsOpenings = updateMorningsOpenings($pdo, $_POST['newmo']);
+    if ($newMorningsOpenings) {
         $notifications[] = "Modification(s) bien prise(s) en compte";
     } else { 
         $errors[] = "Une erreur s\'est produite lors de la(des) modification(s)";
     }
 }
-     
+
+if (isset($_POST['updatemc']))
+{
+    $newMorningsClosings = updateMorningsClosings($pdo, $_POST['newmc']);
+    if ($newMorningsClosings) {
+        $notifications[] = "Modification(s) bien prise(s) en compte";
+    } else { 
+        $errors[] = "Une erreur s\'est produite lors de la(des) modification(s)";
+    }
+}
+
+if (isset($_POST['updateao']))
+{
+    $newAfternoonsOpenings = updateAfternoonsOpenings($pdo, $_POST['newao']);
+    if ($newAfternoonsOpenings) {
+        $notifications[] = "Modification(s) bien prise(s) en compte";
+    } else { 
+        $errors[] = "Une erreur s\'est produite lors de la(des) modification(s)";
+    }
+}
+
+if (isset($_POST['updateac']))
+{
+    $newAfternoonsClosings = updateAfternoonsClosings($pdo, $_POST['newac']);
+    if ($newAfternoonsClosings) {
+        $notifications[] = "Modification(s) bien prise(s) en compte";
+    } else { 
+        $errors[] = "Une erreur s\'est produite lors de la(des) modification(s)";
+    }
+}
+
 $openings = getOpenings($pdo);
 
 ?>
@@ -59,17 +90,17 @@ $openings = getOpenings($pdo);
                 <tr>
                     <td><?=ucfirst(htmlentities($opening["opening_day"]));?></td>
                     
-                    <td><textarea form="openingform" name="newmo" id="" cols="10" rows="1"><?=$opening["morning_opening"];?></textarea></td>
-                    <td><form id="openingform" action="" method="POST"><input class="input-button2" type="submit" name="updatemo" value="Modifier" class="button" /></form></td>
+                    <td><form id="openingform" action="" method="POST"><textarea form="openingform" name="newmo" id="" cols="10" rows="1"><?=$opening["morning_opening"];?></textarea></td>
+                    <td><input class="input-button2" type="submit" name="updatemo" value="Modifier" class="button" /></form></td>
                     
-                    <td><textarea name="newmc" id="" cols="10" rows="1"><?=$opening["morning_closing"];?></textarea></td>
-                    <td><form id="openingform" action="" method="POST"><input class="input-button2" type="submit" name="updatemc" value="Modifier" class="button" /></form></td>
+                    <td><form id="openingform" action="" method="POST"><textarea name="newmc" id="" cols="10" rows="1"><?=$opening["morning_closing"];?></textarea></td>
+                    <td><input class="input-button2" type="submit" name="updatemc" value="Modifier" class="button" /></form></td>
                     
-                    <td><textarea name="newao" id="" cols="10" rows="1"><?=$opening["afternoon_opening"];?></textarea></td>
-                    <td><form id="openingform" action="" method="POST"><input class="input-button2" type="submit" name="unpdateao" value="Modifier" class="button" /></form></td>
+                    <td><form id="openingform" action="" method="POST"><textarea name="newao" id="" cols="10" rows="1"><?=$opening["afternoon_opening"];?></textarea></td>
+                    <td><input class="input-button2" type="submit" name="unpdateao" value="Modifier" class="button" /></form></td>
                     
-                    <td><textarea name="newac" id="" cols="10" rows="1"><?=$opening["afternoon_closing"];?></textarea></td>
-                    <td><form id="openingform" action="" method="POST"><input class="input-button2" type="submit" name="updateac" value="Modifier" class="button" /></form></td>
+                    <td><form id="openingform" action="" method="POST"><textarea name="newac" id="" cols="10" rows="1"><?=$opening["afternoon_closing"];?></textarea></td>
+                    <td><input class="input-button2" type="submit" name="updateac" value="Modifier" class="button" /></form></td>
                 </tr>
                 <?php } ?>
 

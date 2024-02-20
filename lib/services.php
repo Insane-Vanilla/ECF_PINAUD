@@ -1,6 +1,7 @@
 <?php
 
 
+
 // fonction pour récupérer le texte "réparations"
 
 function getRepairs(PDO $pdo)
@@ -15,9 +16,9 @@ function getRepairs(PDO $pdo)
 
 function updateRepairs(PDO $pdo, string $descriptionRepairs):bool
 {
-    $sql ="UPDATE services SET description_service WHERE id=1";
+    $sql ="UPDATE services SET description_service=:description_service WHERE idServices=1";
     $query =$pdo->prepare($sql);
-    $query->bindParam(':description_service', $descriptionRepairs, PDO::PARAM_STR);
+    $query->bindValue(':description_service', $descriptionRepairs, PDO::PARAM_STR);
     return $query->execute();
 }
 
@@ -35,9 +36,9 @@ function getMaintenance (PDO $pdo)
 
 function updateMaintenance(PDO $pdo, string $descriptionMaintenance):bool
 {
-    $sql ="UPDATE services SET description_service WHERE id=2";
+    $sql ="UPDATE services SET description_service=:description_service WHERE idServices=2";
     $query =$pdo->prepare($sql);
-    $query->bindParam(':description_service', $descriptionMaintenance, PDO::PARAM_STR);
+    $query->bindValue(':description_service', $descriptionMaintenance, PDO::PARAM_STR);
     return $query->execute();
 }
 
@@ -55,9 +56,9 @@ function getTires (PDO $pdo)
 
 function updateTires(PDO $pdo, string $descriptionTires):bool
 {
-    $sql ="UPDATE services SET description_service WHERE id=3";
+    $sql ="UPDATE services SET description_service=:description_service WHERE idServices=3";
     $query =$pdo->prepare($sql);
-    $query->bindParam(':description_service', $descriptionTires, PDO::PARAM_STR);
+    $query->bindValue(':description_service', $descriptionTires, PDO::PARAM_STR);
     return $query->execute();
 }
 
@@ -75,8 +76,8 @@ function getBodyWork(PDO $pdo)
 
 function updateBodyWork(PDO $pdo, string $descriptionBodyWork):bool
 {
-    $sql ="UPDATE services SET description_service WHERE id=4";
+    $sql ="UPDATE services SET description_service=:description_service WHERE idServices=4";
     $query =$pdo->prepare($sql);
-    $query->bindParam(':description_service', $descriptionBodyWork, PDO::PARAM_STR);
+    $query->bindValue(':description_service', $descriptionBodyWork, PDO::PARAM_STR);
     return $query->execute();
 }

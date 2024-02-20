@@ -19,6 +19,7 @@ function getUsers(PDO $pdo, int $limit = null):array
 }
 
 //fonction pour ajouter un employé
+
 function addUser(PDO $pdo, string $email_employee, string $password_employee, int $idAdmin):bool
 {
     $sql ="INSERT INTO employee (email_employee, password_employee, idAdmin) VALUES (:email_employee, :password_employee, :idAdmin)";
@@ -31,17 +32,17 @@ function addUser(PDO $pdo, string $email_employee, string $password_employee, in
 }
 
 //fonction pour supprimer un employé
-function deleteUser(PDO $pdo, string $email_employee, string $password_employee, int $idAdmin):bool
+
+function deleteUser(PDO $pdo, int $id):bool
 {
-    $sql ="DELETE FROM employee (email_employee, password_employee, idAdmin) VALUES (:email_employee, :password_employee, :idAdmin)";
+    $sql ="DELETE FROM employee WHERE idEmployee= :idEmployee";
     $query =$pdo->prepare($sql);
-    $query->bindParam(':email_employee', $email_employee, PDO::PARAM_STR);
-    $query->bindParam(':password_employee', $password_employee, PDO::PARAM_STR);
-    $query->bindParam(':idAdmin', $idAdmin, PDO::PARAM_STR);
+    $query->bindValue(':idEmployee', $id, PDO::PARAM_STR);
     return $query->execute();
 }
 
 // fonction pour vérifier l'identifiant et mot de passe de l'employé
+
 function verifyUserLoginPassword(PDO $pdo, string $email, string $password)
 {
     $query = $pdo->prepare("SELECT * FROM employee WHERE email_employee = :email_employee");
@@ -56,8 +57,8 @@ function verifyUserLoginPassword(PDO $pdo, string $email, string $password)
     }
 }
 
-
 // fonction pour vérifier l'identifiant et mot de passe de l'admin
+
 function verifyAdminLoginPassword(PDO $pdo, string $email, string $password)
 {
     $query = $pdo->prepare("SELECT * FROM administrator WHERE email_admin = :email_admin");
@@ -71,3 +72,5 @@ function verifyAdminLoginPassword(PDO $pdo, string $email, string $password)
         return false;
     }
 }
+
+// A FAIRE : fonction pour hasher les mots de passe des nouveaux utilisateurs
